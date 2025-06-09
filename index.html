@@ -4,30 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Посібник для Слідкуючих Неофіційних Організацій</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #121212; /* Ближче до чорного, з ледь помітним синім відтінком */
-            --secondary-dark: #1f1f1f;
+            /* Темний фон з ледь помітним синім відтінком */
+            --primary-dark: #101015; /* Більш глибокий темний з синім відтінком */
+            --secondary-dark: #1b1b22; /* Трохи світліший для елементів */
             --accent-color-light: #fdd835; /* Світліший акцент, схожий на золото/жовтий */
             --accent-color-dark: #c5a62e; /* Темніший акцент */
             --text-light: #ecf0f1;
             --text-muted: #bdc3c7;
-            --border-color: #2b2b2b; /* Темніший бордер */
-            --translucent-dark: rgba(18, 18, 18, 0.85); /* Базується на primary-dark */
-            --translucent-secondary: rgba(31, 31, 31, 0.85); /* Базується на secondary-dark */
-            --translucent-light-dark: rgba(36, 36, 36, 0.85);
-            --translucent-primary-dark-strong: rgba(18, 18, 18, 0.95); /* Більш непрозорий для таблиць */
+            --border-color: #2a2a35; /* Темніший бордер з синім відтінком */
+            --translucent-dark: rgba(16, 16, 21, 0.85); /* Базується на primary-dark */
+            --translucent-secondary: rgba(27, 27, 34, 0.85); /* Базується на secondary-dark */
+            --translucent-light-dark: rgba(30, 30, 40, 0.85);
+            --translucent-primary-dark-strong: rgba(16, 16, 21, 0.95); /* Більш непрозорий для таблиць */
         }
 
         body {
-            font-family: 'Roboto Condensed', sans-serif; /* Новий шрифт */
+            font-family: 'Open Sans', sans-serif; /* Оновлений шрифт для всього коду */
             background-color: var(--primary-dark);
             color: var(--text-light);
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            overflow-x: hidden; /* Запобігає горизонтальному скролу */
+            overflow-x: hidden;
         }
 
         .top-section-background {
@@ -42,7 +43,7 @@
             justify-content: flex-start;
             align-items: center;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Додаємо тінь для відокремлення */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
         .top-section-background::before {
@@ -77,7 +78,7 @@
             max-width: 150px;
             height: auto;
             margin-bottom: 15px;
-            filter: drop-shadow(0 0 15px rgba(253, 216, 53, 0.7)); /* Посилена тінь для лого */
+            filter: drop-shadow(0 0 15px rgba(253, 216, 53, 0.7));
         }
 
         header h1 {
@@ -87,7 +88,7 @@
             font-size: 3.5em;
             text-transform: uppercase;
             letter-spacing: 3px;
-            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); /* Посилена тінь для заголовка */
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
         }
 
         .subheader-text {
@@ -103,7 +104,7 @@
             background-color: var(--translucent-dark);
             padding: 10px 0;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Більша тінь */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
@@ -138,12 +139,12 @@
         nav ul li a:hover {
             background-color: var(--accent-color-light);
             color: var(--primary-dark);
-            transform: translateY(-2px); /* Легкий підйом при наведенні */
+            transform: translateY(-2px);
         }
 
         .container {
             max-width: 1200px;
-            margin: 40px auto; /* Збільшений відступ */
+            margin: 40px auto;
             padding: 0 20px;
         }
 
@@ -152,13 +153,13 @@
             padding: 30px;
             margin-bottom: 30px;
             border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Більша тінь для секцій */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border-color);
             transition: transform 0.3s ease;
         }
 
         section:hover {
-            transform: translateY(-5px); /* Легкий підйом при наведенні */
+            transform: translateY(-5px);
         }
 
         h2, h3 {
@@ -168,12 +169,12 @@
             border-bottom: 2px solid var(--accent-color-light);
             padding-bottom: 10px;
             margin-bottom: 20px;
-            font-size: 2.2em; /* Збільшений розмір для h2 */
+            font-size: 2.2em;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
 
         h3 {
-            font-size: 1.8em; /* Збільшений розмір для h3 */
+            font-size: 1.8em;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -218,18 +219,18 @@
         }
 
         table tr:nth-child(even) {
-            background-color: rgba(38, 38, 38, 0.75); /* Трохи світліший відтінок для парних рядків */
+            background-color: rgba(38, 38, 48, 0.75); /* Трохи світліший відтінок для парних рядків з синім */
         }
 
         table tr:hover {
-            background-color: rgba(48, 48, 48, 0.85);
+            background-color: rgba(48, 48, 58, 0.85);
         }
 
         details {
             background-color: var(--translucent-light-dark);
             border: 1px solid var(--border-color);
             border-radius: 5px;
-            margin-bottom: 15px; /* Збільшений відступ */
+            margin-bottom: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: box-shadow 0.3s ease;
         }
@@ -243,7 +244,7 @@
             padding: 15px 20px;
             cursor: pointer;
             outline: none;
-            font-size: 1.3em; /* Збільшений розмір для summary */
+            font-size: 1.3em;
             color: var(--accent-color-light);
             background-color: var(--translucent-secondary);
             border-radius: 5px;
@@ -255,7 +256,7 @@
         }
 
         summary:hover {
-            background-color: rgba(48, 48, 48, 0.85);
+            background-color: rgba(48, 48, 58, 0.85);
         }
 
         summary::-webkit-details-marker {
@@ -299,41 +300,71 @@
 
         .staff-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Збільшений мінімальний розмір */
-            gap: 25px; /* Збільшений відступ */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 25px;
         }
 
-        .staff-member {
-            background-color: rgba(38, 38, 38, 0.8); /* Більш виразний фон */
-            padding: 20px; /* Збільшений padding */
-            border-radius: 8px; /* Більший border-radius */
-            border: 1px solid var(--border-color);
+        /* Стиль для ГС та ЗГС */
+        .staff-member.gs-zgs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
+            background-color: rgba(38, 38, 48, 0.8); /* Більш виразний фон з синім */
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .staff-member:hover {
+        .staff-member.gs-zgs:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
         }
 
-        .staff-member h4 {
+        .staff-member.gs-zgs .main-photo {
+            width: 100%; /* Фото займає всю доступну ширину */
+            height: auto;
+            border-radius: 8px; /* Залишаємо прямокутним */
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .staff-member.gs-zgs .circle-avatar-container {
+            width: 100px; /* Розмір круглого аватара */
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-color-light);
+            box-shadow: 0 0 12px rgba(253, 216, 53, 0.6);
+            margin-top: 15px; /* Відступ від основного фото */
+        }
+
+        .staff-member.gs-zgs .circle-avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-member.gs-zgs h4 {
             color: var(--accent-color-light);
-            margin-top: 0;
-            margin-bottom: 8px;
+            margin-top: 10px; /* Відступ від круглого аватара */
+            margin-bottom: 5px;
             font-size: 1.3em;
             font-family: 'Oswald', sans-serif;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
-        .staff-member p {
+        .staff-member.gs-zgs p {
             color: var(--text-muted);
             margin: 0;
             font-size: 1.1em;
         }
 
+        /* Стиль для звичайних слідкуючих */
         .admin-avatars-grid {
             display: flex;
             flex-wrap: wrap;
@@ -346,13 +377,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: rgba(38, 38, 38, 0.8);
+            background-color: rgba(38, 38, 48, 0.8);
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 140px; /* Фіксована ширина для кращого контролю */
+            width: 140px;
         }
 
         .admin-avatar-item:hover {
@@ -361,7 +392,7 @@
         }
 
         .admin-avatar-item img {
-            width: 120px; /* Збільшений розмір аватара */
+            width: 120px;
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
@@ -402,7 +433,7 @@
             background-color: var(--translucent-dark);
             color: var(--text-muted);
             text-align: center;
-            padding: 25px 0; /* Збільшений padding */
+            padding: 25px 0;
             margin-top: 50px;
             border-top: 2px solid var(--accent-color-light);
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
@@ -438,7 +469,7 @@
                 grid-template-columns: 1fr;
             }
             .admin-avatar-item {
-                width: 120px; /* Зменшення для мобільних */
+                width: 120px;
             }
             .admin-avatar-item img {
                 width: 100px;
@@ -475,13 +506,19 @@
             <h2><a href="#staff-info" style="color: inherit; text-decoration: none;">СКЛАД АДМІНІСТРАЦІЇ</a></h2>
             <h3>ГС та ЗГС Неофіційних Організацій</h3>
             <div class="staff-info">
-                <div class="staff-member">
-                    <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/57f90c9a-a987-47e8-bde6-1803b5becd09.webp" alt="Данієль Хомс" class="admin-avatar-item">
+                <div class="staff-member gs-zgs">
+                    <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/57f90c9a-a987-47e8-bde6-1803b5becd09.webp" alt="Данієль Хомс" class="main-photo">
+                    <div class="circle-avatar-container">
+                        <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/57f90c9a-a987-47e8-bde6-1803b5becd09.webp" alt="Аватар Данієля Хомса">
+                    </div>
                     <h4>Данієль Хомс</h4>
                     <p>ГС Неоф</p>
                 </div>
-                <div class="staff-member">
-                    <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/57f90c9a-a987-47e8-bde6-1803b5becd09.webp" alt="Олександр Пуля" class="admin-avatar-item">
+                <div class="staff-member gs-zgs">
+                    <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/6734.webp" alt="Олександр Пуля" class="main-photo">
+                    <div class="circle-avatar-container">
+                        <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/6734.webp" alt="Аватар Олександра Пулі">
+                    </div>
                     <h4>Олександр Пуля</h4>
                     <p>ЗГС Неоф</p>
                 </div>
@@ -511,7 +548,7 @@
                 </div>
             </div>
         </section>
-        ---
+        <hr>
 
         <section id="rules-kidnappings">
             <h2><a href="#rules-kidnappings" style="color: inherit; text-decoration: none;">I. ПРАВИЛА ВИКРАДЕНЬ</a></h2>
@@ -614,7 +651,7 @@
                 </div>
             </details>
         </section>
-        ---
+        <hr>
 
         <section id="rules-terrorist-acts">
             <h2><a href="#rules-terrorist-acts" style="color: inherit; text-decoration: none;">II. ПРАВИЛА ПРОВЕДЕННЯ ТЕРАКТІВ</a></h2>
@@ -662,7 +699,7 @@
                 </div>
             </details>
         </section>
-        ---
+        <hr>
 
         <section id="tips">
             <h2><a href="#tips" style="color: inherit; text-decoration: none;">III. ПІДКАЗКИ</a></h2>
@@ -688,7 +725,7 @@
                 </div>
             </details>
         </section>
-        ---
+        <hr>
 
         <section id="rules-armament-supply">
             <h2><a href="#rules-armament-supply" style="color: inherit; text-decoration: none;">I. ПРАВИЛА ПОСТАВКИ ОЗБРОЄННЯ</a></h2>
@@ -781,7 +818,7 @@
                 </div>
             </details>
         </section>
-        ---
+        <hr>
 
         <section id="rules-clan-treasury">
             <h2><a href="#rules-clan-treasury" style="color: inherit; text-decoration: none;">ПРАВИЛА БИТВИ ЗА ОБЩАК</a></h2>
@@ -814,7 +851,7 @@
                 </div>
             </details>
         </section>
-        ---
+        <hr>
 
         <section id="rules-clan-reprimands">
             <h2><a href="#rules-clan-reprimands" style="color: inherit; text-decoration: none;">СИСТЕМА ДОГАН КЛАНІВ</a></h2>
@@ -917,7 +954,7 @@
                 <iframe src="https://docs.google.com/spreadsheets/d/1kxhjiRmdu4lWdyAMorJYsi_vbHkdgcbo1N00pa7riZg/htmlembed?gid=0&range=A1:Z1000" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
-        ---
+        <hr>
 
         <section id="rules-clan-wars-alliances">
             <h2><a href="#rules-clan-wars-alliances" style="color: inherit; text-decoration: none;">ПРАВИЛА ВІЙНИ ТА СОЮЗІВ КЛАНІВ</a></h2>
