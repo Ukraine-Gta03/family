@@ -3,1339 +3,824 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Родина Ukraine GTA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-        /* --- Р—РјС–РЅРЅС–: Р’Р°С€С– С–СЃРЅСѓСЋС‡С– + РЅРѕРІС– РґР»СЏ Р°РЅС–РјР°С†С–Р№ С‚Р° РїРѕРєСЂР°С‰РµРЅСЊ --- */
+    <title>Помічник для Слідкуючих Неофіційних Організацій</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
         :root {
-            --primary: #8B4513; /* SaddleBrown */
-            --primary-dark: #5D2D0C; /* Darker SaddleBrown */
-            --primary-light: #A0522D; /* Lighter SaddleBrown */
-            --secondary: #CD853F; /* Peru */
-            --gold: #FFD700; /* Gold */
-            --gold-dark: #D4AF37; /* Darker Gold */
-            --dark: #0F0F0F; /* Very Dark Gray */
-            --darker: #080808; /* Even Darker Gray */
-            --light: #FFFFFF; /* White */
-            --gray: #1A1A1A; /* Dark Gray */
-            --gray-light: #2A2A2A; /* Lighter Dark Gray */
-            --accent: #FF6B00; /* Bright Orange (for pop) */
-            --glass: rgba(30, 30, 30, 0.7); /* Translucent Dark */
-            --glass-light: rgba(50, 50, 50, 0.5); /* Lighter Translucent Dark */
-
-            /* РќРѕРІС– Р·РјС–РЅРЅС– РґР»СЏ С‚С–РЅРµР№ С‚Р° РїРµСЂРµС…РѕРґС–РІ, С‰Рѕ РїРѕСЃРёР»СЋСЋС‚СЊ "РїСЂРµРјС–СѓРј" */
-            --shadow-soft: 0 5px 15px rgba(0, 0, 0, 0.3); /* Рњ'СЏРєР°, Р·Р°РіР°Р»СЊРЅР° С‚С–РЅСЊ */
-            --shadow-elevated: 0 15px 30px rgba(0, 0, 0, 0.6), 0 5px 10px rgba(0, 0, 0, 0.4); /* Р“Р»РёР±РѕРєР° С‚С–РЅСЊ РґР»СЏ РїС–РґРЅСЏС‚С‚СЏ */
-            --transition-smooth: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Р‘С–Р»СЊС€ РїР»Р°РІРЅР° Р°РЅС–РјР°С†С–СЏ */
-            --transition-fast: 0.3s ease-out; /* РЁРІРёРґС€Р° Р°РЅС–РјР°С†С–СЏ РґР»СЏ С…РѕРІРµСЂС–РІ */
-        }
-
-        /* --- Р‘Р°Р·РѕРІС– СЃС‚РёР»С– С‚Р° С€СЂРёС„С‚Рё --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary-dark: #1a1a1a;
+            --secondary-dark: #2a2a2a;
+            --accent-color: #e74c3c; /* Червоний для акцентів */
+            --text-light: #ecf0f1;
+            --text-muted: #bdc3c7;
+            --border-color: #3b3b3b;
         }
 
         body {
-            /* Р”РѕРґР°С”РјРѕ fallback С€СЂРёС„С‚Рё С‚Р° РѕРїС‚РёРјС–Р·СѓС”РјРѕ Р·РіР»Р°РґР¶СѓРІР°РЅРЅСЏ */
-            font-family: 'Montserrat', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.8; /* РўСЂРѕС…Рё Р±С–Р»СЊС€РёР№ С–РЅС‚РµСЂРІР°Р» РґР»СЏ РєСЂР°С‰РѕС— С‡РёС‚Р°Р±РµР»СЊРЅРѕСЃС‚С– */
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(205, 133, 63, 0.15) 0%, transparent 50%);
-            background-attachment: fixed;
-            /* Р•С„РµРєС‚ Р»РµРіРєРѕРіРѕ СЃРІС–С‚С–РЅРЅСЏ Р°Р±Рѕ СЂРѕР·РјРёС‚С‚СЏ РЅР° С‚РµРјРЅРѕРјСѓ С„РѕРЅС– */
-            text-shadow: 0 0 1px rgba(255, 255, 255, 0.1); 
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        /* --- Header Styles: Р‘С–Р»СЊС€Рµ РіР»РёР±РёРЅРё С‚Р° С–РЅС‚РµСЂР°РєС‚РёРІРЅРѕСЃС‚С– --- */
         header {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            padding: 60px 0; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding РґР»СЏ РїСЂРѕСЃС‚РѕСЂСѓ */
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 70px; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї Р·РЅРёР·Сѓ */
-            border-bottom: 3px solid var(--gold); /* РўРѕРІСЃС‚С–С€Р° Р·РѕР»РѕС‚Р° Р»С–РЅС–СЏ */
-            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); /* РџР»Р°РІРЅРёР№ РїРµСЂРµС…С–Рґ */
-        }
-
-        header:hover {
-            transform: translateY(-5px); /* Р›РµРіРєРµ РїС–РґРЅСЏС‚С‚СЏ РїСЂРё РЅР°РІРµРґРµРЅРЅС– РЅР° РІРµСЃСЊ С…РµРґРµСЂ */
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9); /* Р©Рµ РіР»РёР±С€Р° С‚С–РЅСЊ */
-        }
-
-        header::before {
-            /* Р¤РѕРЅРѕРІРёР№ РІС–Р·РµСЂСѓРЅРѕРє Р· РµР»РµРіР°РЅС‚РЅС–С€РёРј РЅР°С…РёР»РѕРј С‚Р° Р°РЅС–РјР°С†С–С”СЋ */
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(60deg, transparent 65%, rgba(212, 175, 55, 0.15) 65%),
-                linear-gradient(-60deg, transparent 65%, rgba(212, 175, 55, 0.15) 65%);
-            background-size: 40px 40px; /* РўСЂРѕС…Рё Р±С–Р»СЊС€С– РµР»РµРјРµРЅС‚Рё РІС–Р·РµСЂСѓРЅРєР° */
-            opacity: 0.4; /* Р‘С–Р»СЊС€Р° РїРѕРјС–С‚РЅС–СЃС‚СЊ */
-            animation: headerPatternMove 60s linear infinite; /* РџРѕРІС–Р»СЊРЅР° Р°РЅС–РјР°С†С–СЏ РІС–Р·РµСЂСѓРЅРєР° */
-        }
-
-        @keyframes headerPatternMove {
-            from { background-position: 0 0; }
-            to { background-position: 100% 100%; }
+            background-color: var(--secondary-dark);
+            padding: 20px 0;
+            border-bottom: 2px solid var(--accent-color);
+            text-align: center;
         }
 
         .header-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .logo {
-            margin-bottom: 30px; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            transition: transform var(--transition-smooth);
-        }
-
-        .logo:hover {
-            transform: scale(1.1) rotate(-8deg); /* Р‘С–Р»СЊС€ РІРёСЂР°Р¶РµРЅРёР№ РµС„РµРєС‚ */
-        }
-
-        .logo img {
-            height: 140px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ СЂРѕР·РјС–СЂ Р»РѕРіРѕ */
-            width: auto;
-            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.9)) saturate(1.2); /* РџРѕСЃРёР»РµРЅРёР№ РµС„РµРєС‚ С‚С–РЅС– С‚Р° РЅР°СЃРёС‡РµРЅРѕСЃС‚С– */
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.2rem; /* Р©Рµ Р±С–Р»СЊС€РёР№ СЂРѕР·РјС–СЂ Р·Р°РіРѕР»РѕРІРєР° */
-            font-weight: 900; /* Р©Рµ Р¶РёСЂРЅС–С€РёР№ */
-            color: var(--gold);
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Р‘С–Р»СЊС€ РІРёСЂР°Р¶РµРЅР° С‚С–РЅСЊ */
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--gold), #FFEB80); /* РЇСЃРєСЂР°РІС–С€РёР№ Р·РѕР»РѕС‚РёР№ РіСЂР°РґС–С”РЅС‚ */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            display: inline-block;
-            letter-spacing: 2px; /* Р”РѕРґР°С”РјРѕ РЅРµРІРµР»РёРєРёР№ РјС–Р¶Р»С–С‚РµСЂРЅРёР№ С–РЅС‚РµСЂРІР°Р» */
-            animation: textGlow 2s infinite alternate; /* Р•С„РµРєС‚ СЃРІС–С‚С–РЅРЅСЏ */
-        }
-
-        @keyframes textGlow {
-            from { text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 0 0 5px var(--gold); }
-            to { text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9), 0 0 15px var(--gold-dark); }
-        }
-
-        h1::after {
-            content: "";
-            position: absolute;
-            bottom: -15px; /* РќРёР¶С‡Рµ */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px; /* Р”РѕРІС€Р° Р»С–РЅС–СЏ */
-            height: 4px; /* РўРѕРІСЃС‚С–С€Р° Р»С–РЅС–СЏ */
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-        }
-
-        .subtitle {
-            font-size: 1.4rem; /* Р—Р±С–Р»СЊС€РµРЅРёР№ СЂРѕР·РјС–СЂ */
-            opacity: 0.95; /* Р‘С–Р»СЊС€ РїРѕРјС–С‚РЅРёР№ */
-            max-width: 900px; /* РЁРёСЂС€РёР№ С‚РµРєСЃС‚ */
+            max-width: 1200px;
             margin: 0 auto;
-            line-height: 1.9; /* Р‘С–Р»СЊС€РёР№ С–РЅС‚РµСЂРІР°Р» */
-            position: relative;
-            padding: 0 25px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Р›РµРіРєР° С‚С–РЅСЊ РґР»СЏ С‡РёС‚Р°Р±РµР»СЊРЅРѕСЃС‚С– */
+            padding: 0 20px;
         }
 
-        /* --- Gallery Styles: Р‘С–Р»СЊС€Рµ РґРёРЅР°РјС–РєРё С‚Р° РІС–Р·СѓР°Р»СЊРЅРёС… РµС„РµРєС‚С–РІ --- */
-        .gallery-section {
-            margin: 80px 0; /* Р—Р±С–Р»СЊС€РµРЅРёР№ РІС–РґСЃС‚СѓРї */
-            position: relative;
+        header img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
         }
 
-        .gallery-section::before {
-            top: -40px; /* Р’С–РґСЃС‚СѓРї Р·РІРµСЂС…Сѓ */
-            height: 2px; /* РўРѕРЅС€Р° Р»С–РЅС–СЏ */
-            background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+        header h1 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-color);
+            margin: 0;
+            font-size: 2.8em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        .gallery-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem; /* Р—Р±С–Р»СЊС€РµРЅРёР№ СЂРѕР·РјС–СЂ */
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 35px;
+        nav {
+            background-color: var(--accent-color);
+            padding: 10px 0;
             text-align: center;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .gallery-title::after {
-            width: 150px; /* Р”РѕРІС€Р° Р»С–РЅС–СЏ */
-            height: 5px; /* РўРѕРІСЃС‚С–С€Р° */
-            background: linear-gradient(to right, var(--primary-dark), var(--gold), var(--accent)); /* Р“СЂР°РґС–С”РЅС‚РЅР° Р»С–РЅС–СЏ */
-            margin: 20px auto;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Р‘С–Р»СЊС€С– РјС–РЅС–РјР°Р»СЊРЅС– СЂРѕР·РјС–СЂРё */
-            gap: 30px; /* Р‘С–Р»СЊС€РёР№ РїСЂРѕСЃС‚С–СЂ РјС–Р¶ РµР»РµРјРµРЅС‚Р°РјРё */
-            margin-top: 50px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 15px; /* Р‘С–Р»СЊС€ Р·Р°РѕРєСЂСѓРіР»РµРЅС– РєСѓС‚Рё */
-            overflow: hidden;
-            box-shadow: var(--shadow-elevated); /* Р’РёРєРѕСЂРёСЃС‚РѕРІСѓС”РјРѕ РЅРѕРІСѓ Р·РјС–РЅРЅСѓ РґР»СЏ РіР»РёР±РѕРєРѕС— С‚С–РЅС– */
-            transition: all var(--transition-smooth); /* РџР»Р°РІРЅС–С€РёР№ РїРµСЂРµС…С–Рґ */
-            aspect-ratio: 16/9;
-            border: 2px solid rgba(212, 175, 55, 0.3); /* РўРѕРІСЃС‚С–С€Р° СЂР°РјРєР° */
-            transform-origin: center center; /* Р”Р»СЏ Р±С–Р»СЊС€ РєРѕСЂРµРєС‚РЅРѕС— Р°РЅС–РјР°С†С–С— scale */
-        }
-
-        .gallery-item::before {
-            /* РџРѕРєСЂР°С‰РµРЅРёР№ РіСЂР°РґС–С”РЅС‚РЅРёР№ РѕРІРµСЂР»РµР№ */
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.5), rgba(205, 133, 63, 0.2), transparent 70%);
-            z-index: 1;
-            opacity: 1; /* Р—Р°РІР¶РґРё РІРёРґРёРјРёР№, Р°Р»Рµ Р·РјРµРЅС€СѓС”С‚СЊСЃСЏ РїСЂРё С…РѕРІРµСЂС– */
-            transition: opacity var(--transition-fast);
-        }
-
-        .gallery-item:hover::before {
-            opacity: 0; /* Р—РЅРёРєР°С” РїСЂРё РЅР°РІРµРґРµРЅРЅС–, РІС–РґРєСЂРёРІР°СЋС‡Рё Р·РѕР±СЂР°Р¶РµРЅРЅСЏ */
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-15px) scale(1.03); /* Р‘С–Р»СЊС€ РІРёСЂР°Р¶РµРЅРёР№ РµС„РµРєС‚ РїС–РґРЅСЏС‚С‚СЏ С‚Р° РјР°СЃС€С‚Р°Р±СѓРІР°РЅРЅСЏ */
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8); /* Р©Рµ РіР»РёР±С€Р° С‚С–РЅСЊ */
-            border-color: rgba(212, 175, 55, 0.7); /* РЇСЃРєСЂР°РІС–С€Р° СЂР°РјРєР° РїСЂРё РЅР°РІРµРґРµРЅРЅС– */
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1); /* Р”РѕРІС€РёР№ С‚Р° РїР»Р°РІРЅС–С€РёР№ zoom */
-            filter: brightness(0.9) grayscale(0.1); /* Р›РµРіРєРµ Р·Р°С‚РµРјРЅРµРЅРЅСЏ С‚Р° Р·РЅРµР±Р°СЂРІР»РµРЅРЅСЏ */
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.15); /* РЎРёР»СЊРЅС–С€РёР№ zoom */
-            filter: brightness(1) grayscale(0); /* РџРѕРІРµСЂРЅРµРЅРЅСЏ РґРѕ РЅРѕСЂРјР°Р»СЊРЅРѕРіРѕ РІРёРіР»СЏРґСѓ */
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent 70%); /* Р‘С–Р»СЊС€ РЅР°СЃРёС‡РµРЅРёР№ РіСЂР°РґС–С”РЅС‚ */
-            padding: 30px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            color: white;
-            opacity: 0;
-            /* РђРЅС–РјР°С†С–СЏ Р· Р·Р°С‚СЂРёРјРєРѕСЋ, С‰РѕР± Р·'СЏРІР»СЏРІСЃСЏ РїС–СЃР»СЏ Р·РЅРёРєРЅРµРЅРЅСЏ РѕРІРµСЂР»РµСЋ */
-            transition: opacity 0.5s var(--transition-smooth) 0.2s; 
-            z-index: 2;
-            font-size: 1.2rem; /* Р‘С–Р»СЊС€РёР№ С€СЂРёС„С‚ */
-            font-weight: 700; /* Р–РёСЂРЅС–С€РёР№ С€СЂРёС„С‚ */
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
-            transform: translateY(100%); /* РџРѕС‡РёРЅР°С” Р·'СЏРІР»СЏС‚РёСЃСЏ Р·РЅРёР·Сѓ */
-            transition: opacity var(--transition-smooth), transform var(--transition-smooth);
-        }
-
-        .gallery-item:hover .gallery-caption {
-            opacity: 1;
-            transform: translateY(0); /* Р’РёС—Р¶РґР¶Р°С” РЅР° РјС–СЃС†Рµ */
-        }
-
-        /* --- Hierarchy Table Styles: Р‘С–Р»СЊС€Рµ СЂРѕР·РєРѕС€С– С‚Р° С–РЅС‚РµСЂР°РєС‚РёРІРЅРѕСЃС‚С– --- */
-        .hierarchy-section {
-            margin: 90px 0; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            position: relative;
-        }
-
-        .hierarchy-section::before {
-            top: -40px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem; /* Р—Р±С–Р»СЊС€РµРЅРёР№ СЂРѕР·РјС–СЂ */
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 45px;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-        }
-
-        .section-title::after {
-            width: 150px;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary-dark), var(--gold), var(--accent));
-            margin: 20px auto 35px;
-        }
-
-        .search-container {
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             justify-content: center;
-            margin-bottom: 50px; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            gap: 30px; /* Р‘С–Р»СЊС€РёР№ РїСЂРѕСЃС‚С–СЂ */
             flex-wrap: wrap;
-            align-items: center;
         }
 
-        #searchInput {
-            padding: 18px 30px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            width: 100%;
-            max-width: 650px; /* РЁРёСЂС€Рµ РїРѕР»Рµ */
-            border-radius: 50px;
-            border: 2px solid var(--secondary);
-            background-color: var(--gray);
-            color: var(--light);
-            font-size: 1.1rem; /* Р‘С–Р»СЊС€РёР№ С€СЂРёС„С‚ */
-            outline: none;
-            transition: all var(--transition-smooth); /* РџР»Р°РІРЅС–С€РёР№ РїРµСЂРµС…С–Рґ */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
+        nav ul li {
+            margin: 0 15px;
         }
 
-        #searchInput::placeholder { /* РЎС‚РёР»СЊ РґР»СЏ placeholder */
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        #searchInput:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), inset 0 0 5px rgba(212, 175, 55, 0.3); /* РЎСЏР№РІРѕ + Р»РµРіРєРёР№ inset */
-            background-color: var(--gray-light);
-        }
-
-        .toggle-btn {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            padding: 18px 35px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1.1rem; /* Р‘С–Р»СЊС€РёР№ С€СЂРёС„С‚ */
-            font-weight: 700; /* Р–РёСЂРЅС–С€РёР№ */
-            transition: all var(--transition-smooth);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
-            border: 2px solid rgba(212, 175, 55, 0.4); /* РўРѕРІСЃС‚С–С€Р° СЂР°РјРєР° */
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.5px;
-        }
-
-        .toggle-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -120%; /* РџРѕС‡РёРЅР°С”С‚СЊСЃСЏ РґР°Р»С– Р·Р»С–РІР° */
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* РЇСЃРєСЂР°РІС–С€РёР№ Р±Р»РёСЃРє */
-            transform: skewX(-25deg); /* РЎРёР»СЊРЅС–С€РёР№ РЅР°С…РёР» */
-            transition: 0.6s ease-out; /* РџР»Р°РІРЅС–С€РёР№ РїРµСЂРµС…С–Рґ Р±Р»РёСЃРєСѓ */
-        }
-
-        .toggle-btn:hover {
-            transform: translateY(-5px); /* Р‘С–Р»СЊС€ РІРёСЂР°Р¶РµРЅРµ РїС–РґРЅСЏС‚С‚СЏ */
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Р©Рµ РіР»РёР±С€Р° С‚С–РЅСЊ */
-            border-color: var(--gold);
-        }
-
-        .toggle-btn:hover::before {
-            left: 120%; /* РџСЂРѕС…РѕРґРёС‚СЊ РґР°Р»С– РІРїСЂР°РІРѕ */
-        }
-
-        .hierarchy-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 50px 0; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            background-color: var(--glass);
-            backdrop-filter: blur(12px); /* РЎРёР»СЊРЅС–С€РёР№ blur */
-            box-shadow: var(--shadow-elevated); /* Р“Р»РёР±РѕРєР° С‚С–РЅСЊ */
-            border-radius: 18px; /* Р‘С–Р»СЊС€ Р·Р°РѕРєСЂСѓРіР»РµРЅС– РєСѓС‚Рё */
-            overflow: hidden;
-            border: 2px solid rgba(212, 175, 55, 0.3); /* РўРѕРІСЃС‚С–С€Р° СЂР°РјРєР° */
-        }
-
-        .hierarchy-table th, 
-        .hierarchy-table td {
-            padding: 22px 35px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            text-align: left;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15); /* РўСЂРѕС…Рё РїРѕРјС–С‚РЅС–С€Р° Р»С–РЅС–СЏ */
-            position: relative;
-            transition: background-color var(--transition-fast); /* РЁРІРёРґРєРёР№ РїРµСЂРµС…С–Рґ РґР»СЏ СЂСЏРґРєР° */
-        }
-
-        .hierarchy-table th {
-            background: linear-gradient(to right, var(--primary-dark), var(--primary));
-            color: white;
-            font-weight: 700; /* Р–РёСЂРЅС–С€РёР№ С€СЂРёС„С‚ */
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1em;
             text-transform: uppercase;
-            letter-spacing: 1.5px; /* Р‘С–Р»СЊС€РёР№ С–РЅС‚РµСЂРІР°Р» */
-            font-size: 1rem; /* Р—Р±С–Р»СЊС€РµРЅРёР№ С€СЂРёС„С‚ */
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
         }
 
-        .hierarchy-table th::after {
-            height: 4px; /* РўРѕРІСЃС‚С–С€Р° Р»С–РЅС–СЏ */
-            background: linear-gradient(to right, var(--gold), var(--accent));
+        nav ul li a:hover {
+            background-color: var(--secondary-dark);
+            color: var(--accent-color);
         }
 
-        .hierarchy-table tr:last-child td {
-            border-bottom: none;
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
 
-        .hierarchy-table tr:hover {
-            background-color: rgba(212, 175, 55, 0.15); /* РўСЂРѕС…Рё РїРѕРјС–С‚РЅС–С€РёР№ С…РѕРІРµСЂ */
+        section {
+            background-color: var(--secondary-dark);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
         }
 
-        .hierarchy-table tr:hover td::before {
-            width: 5px; /* РўРѕРІСЃС‚С–С€Р° РІРµСЂС‚РёРєР°Р»СЊРЅР° Р»С–РЅС–СЏ */
-            background: linear-gradient(to bottom, var(--gold), var(--accent));
+        h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 2em;
         }
 
-        /* Hierarchy level colors (Р·Р±РµСЂС–РіР°С”РјРѕ РІР°С€Сѓ С–РґРµСЋ, Р°Р»Рµ РјРѕР¶РµРјРѕ РґРѕРґР°С‚Рё Р»РµРіРєРµ СЃРІС–С‚С–РЅРЅСЏ) */
-        .level-1 { 
-            background-color: rgba(139, 69, 19, 0.4); 
-            border-left: 5px solid var(--gold); /* РўРѕРІСЃС‚С–С€Р° Р»С–РЅС–СЏ */
-            box-shadow: inset 0 0 8px rgba(255, 215, 0, 0.2); /* Р›РµРіРєРµ РІРЅСѓС‚СЂС–С€РЅС” СЃРІС–С‚С–РЅРЅСЏ */
-        }
-        .level-2 { 
-            background-color: rgba(139, 69, 19, 0.3); 
-            border-left: 5px solid var(--secondary);
-            box-shadow: inset 0 0 6px rgba(205, 133, 63, 0.2);
-        }
-        .level-3 { 
-            background-color: rgba(139, 69, 19, 0.25); /* РўСЂРѕС…Рё С‚РµРјРЅС–С€Рµ */
-            border-left: 5px solid var(--primary-light);
-            box-shadow: inset 0 0 5px rgba(160, 82, 45, 0.2);
-        }
-        .level-4 { 
-            background-color: rgba(139, 69, 19, 0.2); 
-            border-left: 5px solid var(--gray-light);
-            box-shadow: inset 0 0 4px rgba(42, 42, 42, 0.2);
-        }
-        .level-5 { 
-            background-color: rgba(139, 69, 19, 0.15); 
-            border-left: 5px solid var(--glass-light);
-            box-shadow: inset 0 0 3px rgba(50, 50, 50, 0.2);
+        h3 {
+            font-size: 1.5em;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .rank-badge {
-            display: inline-block;
-            background: linear-gradient(to right, var(--gold), #FFEB80); /* РЇСЃРєСЂР°РІС–С€РёР№ Р·РѕР»РѕС‚РёР№ */
-            color: var(--darker); /* РўРµРјРЅС–С€РёР№ С‚РµРєСЃС‚ РґР»СЏ РєСЂР°С‰РѕРіРѕ РєРѕРЅС‚СЂР°СЃС‚Сѓ */
-            padding: 5px 14px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            border-radius: 25px; /* Р‘С–Р»СЊС€ РєСЂСѓРіР»Рµ */
-            font-size: 0.9rem; /* Р—Р±С–Р»СЊС€РµРЅРёР№ С€СЂРёС„С‚ */
-            font-weight: bold;
-            margin-left: 12px;
-            vertical-align: middle;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
-            border: 1px solid rgba(255, 255, 255, 0.4); /* РџРѕРјС–С‚РЅС–С€Р° СЂР°РјРєР° */
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        p, ul, ol {
+            color: var(--text-light);
+            margin-bottom: 15px;
         }
 
-        /* --- Promotion System Styles: Р‘С–Р»СЊС€Рµ СЂРѕР·РєРѕС€С– С‚Р° С–РЅС‚РµСЂР°РєС‚РёРІРЅРѕСЃС‚С– --- */
-        .promotion-system {
-            margin: 90px 0; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            background: var(--glass);
-            backdrop-filter: blur(12px); /* РЎРёР»СЊРЅС–С€РёР№ blur */
-            padding: 60px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            border-radius: 20px; /* Р‘С–Р»СЊС€ Р·Р°РѕРєСЂСѓРіР»РµРЅС– РєСѓС‚Рё */
-            box-shadow: var(--shadow-elevated); /* Р“Р»РёР±РѕРєР° С‚С–РЅСЊ */
-            border: 2px solid rgba(212, 175, 55, 0.3); /* РўРѕРІСЃС‚С–С€Р° СЂР°РјРєР° */
-            position: relative;
-            overflow: hidden;
+        ul, ol {
+            padding-left: 25px;
         }
 
-        .promotion-system::before {
-            height: 6px; /* РўРѕРІСЃС‚С–С€Р° Р»С–РЅС–СЏ */
-            background: linear-gradient(to right, var(--primary-dark), var(--gold), var(--accent));
+        ul li, ol li {
+            margin-bottom: 8px;
         }
 
-        .accordion {
-            background: linear-gradient(to right, var(--primary-dark), var(--primary));
-            color: white;
-            cursor: pointer;
-            padding: 28px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
+        .table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        table {
             width: 100%;
-            border: none;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: var(--primary-dark);
+        }
+
+        table th, table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
             text-align: left;
+            color: var(--text-light);
+        }
+
+        table th {
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #2e2e2e;
+        }
+
+        table tr:hover {
+            background-color: #3a3a3a;
+        }
+
+        details {
+            background-color: #2e2e2e;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        summary {
+            font-family: 'Oswald', sans-serif;
+            padding: 15px 20px;
+            cursor: pointer;
             outline: none;
-            font-size: 1.2rem; /* Р‘С–Р»СЊС€РёР№ С€СЂРёС„С‚ */
-            font-weight: 700; /* Р–РёСЂРЅС–С€РёР№ */
-            transition: all var(--transition-smooth);
-            margin-bottom: 18px; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            border-radius: 10px; /* Р‘С–Р»СЊС€ Р·Р°РѕРєСЂСѓРіР»РµРЅС– РєСѓС‚Рё */
+            font-size: 1.2em;
+            color: var(--accent-color);
+            background-color: var(--secondary-dark);
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
-            position: relative;
-            overflow: hidden;
-            border: 2px solid rgba(212, 175, 55, 0.4); /* РўРѕРІСЃС‚С–С€Р° СЂР°РјРєР° */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
-        .accordion::before {
-            width: 6px; /* РўРѕРІСЃС‚С–С€Р° Р»С–РЅС–СЏ */
-            background: linear-gradient(to bottom, var(--gold), var(--accent));
+        summary:hover {
+            background-color: #3a3a3a;
         }
 
-        .accordion:hover {
-            background: linear-gradient(to right, var(--primary), var(--primary-light));
-            transform: translateY(-5px); /* Р‘С–Р»СЊС€Рµ РїС–РґРЅСЏС‚С‚СЏ */
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Р©Рµ РіР»РёР±С€Р° С‚С–РЅСЊ */
-            border-color: var(--gold);
+        summary::-webkit-details-marker {
+            display: none;
         }
 
-        .accordion.active {
-            background: linear-gradient(to right, var(--primary), var(--primary-light));
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom: 2px solid var(--accent); /* Р”РѕРґР°С”РјРѕ Р°РєС†РµРЅС‚РЅСѓ Р»С–РЅС–СЋ РїСЂРё Р°РєС‚РёРІРЅРѕСЃС‚С– */
+        summary::after {
+            content: '+';
+            font-size: 1.5em;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
         }
 
-        .accordion::after {
-            content: '\f078'; /* Font Awesome Chevron Down */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 18px; /* Р‘С–Р»СЊС€РёР№ СЂРѕР·РјС–СЂ С–РєРѕРЅРєРё */
-            transition: all var(--transition-fast);
-            color: var(--gold);
+        details[open] summary::after {
+            content: '-';
+            transform: rotate(0deg);
         }
 
-        .accordion.active::after {
-            transform: rotate(180deg);
-            color: var(--accent); /* Р—РјС–РЅР° РєРѕР»СЊРѕСЂСѓ РїСЂРё Р°РєС‚РёРІРЅРѕСЃС‚С– */
+        details[open] summary {
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 5px 5px 0 0;
         }
 
-        .panel {
-            padding: 0 30px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            background-color: var(--gray-light);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s ease-in-out; /* РџР»Р°РІРЅС–С€РёР№ transition РґР»СЏ max-height */
-            border-radius: 0 0 10px 10px; /* Р‘С–Р»СЊС€ Р·Р°РѕРєСЂСѓРіР»РµРЅС– РєСѓС‚Рё */
-            margin-bottom: 25px; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            border-left: 6px solid var(--gold); /* РўРѕРІСЃС‚С–С€Р° Р»С–РЅС–СЏ */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
+        details .content {
+            padding: 20px;
+            background-color: var(--primary-dark);
+            border-radius: 0 0 5px 5px;
         }
 
-        .panel ul {
-            padding: 30px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            list-style-type: none;
-        }
-
-        .panel li {
-            padding: 15px 0; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            position: relative;
-            padding-left: 40px; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї РґР»СЏ С–РєРѕРЅРєРё */
-            font-size: 1.05rem; /* РўСЂРѕС…Рё Р±С–Р»СЊС€РёР№ С€СЂРёС„С‚ */
-            line-height: 1.8;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Р›РµРіРєР° СЂРѕР·РґС–Р»СЏСЋС‡Р° Р»С–РЅС–СЏ */
-        }
-
-        .panel li:last-child {
-            border-bottom: none; /* РџСЂРёР±РёСЂР°С”РјРѕ РЅРёР¶РЅСЋ Р»С–РЅС–СЋ РѕСЃС‚Р°РЅРЅСЊРѕРіРѕ РµР»РµРјРµРЅС‚Р° */
-        }
-
-        .panel li::before {
-            content: '\f054'; /* Font Awesome Chevron Right */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-            top: 17px; /* РљРѕСЂРёРіСѓС”РјРѕ РїРѕР·РёС†С–СЋ */
-            font-size: 16px; /* Р‘С–Р»СЊС€РёР№ СЂРѕР·РјС–СЂ */
-            transition: all var(--transition-fast);
-        }
-
-        .panel li:hover::before {
-            transform: translateX(8px); /* РЎРёР»СЊРЅС–С€РёР№ СЂСѓС… */
-            color: var(--accent);
-        }
-
-        .note {
-            background: rgba(212, 175, 55, 0.15); /* РўСЂРѕС…Рё С‚РµРјРЅС–С€РёР№ С„РѕРЅ */
-            border-left: 6px solid var(--gold); /* РўРѕРІСЃС‚С–С€Р° Р»С–РЅС–СЏ */
-            padding: 25px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            margin: 35px 0; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            border-radius: 0 10px 10px 0; /* Р‘С–Р»СЊС€ Р·Р°РѕРєСЂСѓРіР»РµРЅС– РєСѓС‚Рё */
-            position: relative;
-            backdrop-filter: blur(8px); /* РЎРёР»СЊРЅС–С€РёР№ blur */
-            border: 1px solid rgba(212, 175, 55, 0.3); /* РџРѕРјС–С‚РЅС–С€Р° СЂР°РјРєР° */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
-        }
-
-        .note::before {
-            content: "\f05a"; /* Font Awesome Info Circle */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: -18px; /* РўСЂРѕС…Рё РґР°Р»С– Р·Р»С–РІР° */
-            top: -18px; /* РўСЂРѕС…Рё РІРёС‰Рµ */
-            background: var(--gold);
-            width: 36px; /* Р‘С–Р»СЊС€РёР№ СЂРѕР·РјС–СЂ */
-            height: 36px; /* Р‘С–Р»СЊС€РёР№ СЂРѕР·РјС–СЂ */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--darker); /* РўРµРјРЅС–С€РёР№ РєРѕР»С–СЂ С‚РµРєСЃС‚Сѓ */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
-        }
-
-        .note p {
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-        }
-
-        .note strong {
-            color: var(--gold);
-            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); /* Р›РµРіРєРµ СЃРІС–С‚С–РЅРЅСЏ */
-        }
-
-        /* --- Disciplinary Actions Styles: Р‘С–Р»СЊС€Рµ СЂРѕР·РєРѕС€С– С‚Р° С–РЅС‚РµСЂР°РєС‚РёРІРЅРѕСЃС‚С– --- */
-        .disciplinary-actions {
-            margin: 90px 0; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            position: relative;
-        }
-
-        .disciplinary-actions::before {
-            top: -40px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
-        }
-
-        .disciplinary-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 50px 0; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            background-color: var(--glass);
-            backdrop-filter: blur(12px); /* РЎРёР»СЊРЅС–С€РёР№ blur */
-            box-shadow: var(--shadow-elevated); /* Р“Р»РёР±РѕРєР° С‚С–РЅСЊ */
-            border-radius: 18px; /* Р‘С–Р»СЊС€ Р·Р°РѕРєСЂСѓРіР»РµРЅС– РєСѓС‚Рё */
-            overflow: hidden;
-            border: 2px solid rgba(212, 175, 55, 0.3); /* РўРѕРІСЃС‚С–С€Р° СЂР°РјРєР° */
-        }
-
-        .disciplinary-table th, 
-        .disciplinary-table td {
-            padding: 22px 35px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
-            text-align: left;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15); /* РўСЂРѕС…Рё РїРѕРјС–С‚РЅС–С€Р° Р»С–РЅС–СЏ */
-            position: relative;
-            transition: background-color var(--transition-fast);
-        }
-
-        .disciplinary-table th {
-            background: linear-gradient(to right, var(--primary-dark), var(--primary));
-            color: white;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 1rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .disciplinary-table th::after {
-            height: 4px;
-            background: linear-gradient(to right, var(--gold), var(--accent));
-        }
-
-        .disciplinary-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .disciplinary-table tr:hover {
-            background-color: rgba(212, 175, 55, 0.15);
-        }
-
-        .disciplinary-table tr:hover td::before {
-            width: 5px;
-            background: linear-gradient(to bottom, var(--gold), var(--accent));
-        }
-
-        .fine-amount {
-            color: var(--gold);
-            font-weight: 700; /* Р–РёСЂРЅС–С€РёР№ */
-            text-shadow: 0 0 12px rgba(212, 175, 55, 0.4); /* РЎРёР»СЊРЅС–С€Рµ СЃРІС–С‚С–РЅРЅСЏ */
-            font-size: 1.05rem;
-        }
-
-        /* --- Footer Styles: Р—Р°РІРµСЂС€Р°Р»СЊРЅРёР№ С€С‚СЂРёС… --- */
-        footer {
-            background: linear-gradient(to right, var(--darker), var(--dark));
-            padding: 60px 0; /* Р—Р±С–Р»СЊС€РµРЅРёР№ padding */
+        .image-center {
             text-align: center;
-            margin-top: 90px; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            position: relative;
-            border-top: 2px solid rgba(212, 175, 55, 0.3); /* РўРѕРІСЃС‚С–С€Р° СЂР°РјРєР° */
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7); /* РўС–РЅСЊ Р·РІРµСЂС…Сѓ */
+            margin: 20px 0;
         }
 
-        footer::before {
-            height: 6px; /* РўРѕРІСЃС‚С–С€Р° Р»С–РЅС–СЏ */
-            background: linear-gradient(to right, var(--primary-dark), var(--gold), var(--accent), var(--primary)); /* Р‘С–Р»СЊС€ СЂРѕР·С€РёСЂРµРЅРёР№ РіСЂР°РґС–С”РЅС‚ */
+        .image-center img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .social-links {
-            margin: 35px 0; /* Р‘С–Р»СЊС€РёР№ РІС–РґСЃС‚СѓРї */
-            display: flex;
-            justify-content: center;
-            gap: 30px; /* Р‘С–Р»СЊС€РёР№ РїСЂРѕСЃС‚С–СЂ */
+        .staff-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .social-links a {
-            color: var(--light);
-            font-size: 32px; /* Р‘С–Р»СЊС€РёР№ СЂРѕР·РјС–СЂ С–РєРѕРЅРѕРє */
-            transition: all var(--transition-smooth); /* РџР»Р°РІРЅС–С€РёР№ РїРµСЂРµС…С–Рґ */
-            width: 65px; /* Р‘С–Р»СЊС€РёР№ СЂРѕР·РјС–СЂ С„РѕРЅСѓ */
-            height: 65px; /* Р‘С–Р»СЊС€РёР№ СЂРѕР·РјС–СЂ С„РѕРЅСѓ */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.08); /* РўСЂРѕС…Рё РїРѕРјС–С‚РЅС–С€РёР№ С„РѕРЅ */
-            backdrop-filter: blur(8px); /* РЎРёР»СЊРЅС–С€РёР№ blur */
-            border: 1px solid rgba(212, 175, 55, 0.3); /* РџРѕРјС–С‚РЅС–С€Р° СЂР°РјРєР° */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
+        .staff-member {
+            background-color: #2e2e2e;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            text-align: center;
         }
 
-        .social-links a:hover {
-            color: var(--gold);
-            transform: translateY(-8px) scale(1.15) rotate(5deg); /* Р‘С–Р»СЊС€ РІРёСЂР°Р¶РµРЅРёР№ РµС„РµРєС‚ */
-            background: rgba(212, 175, 55, 0.2); /* РџРѕРјС–С‚РЅС–С€РёР№ С„РѕРЅ */
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); /* Р“Р»РёР±С€Р° С‚С–РЅСЊ */
+        .staff-member h4 {
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+            font-family: 'Oswald', sans-serif;
         }
 
-        .copyright {
-            opacity: 0.85; /* Р‘С–Р»СЊС€ РїРѕРјС–С‚РЅРёР№ */
-            font-size: 16px; /* Р—Р±С–Р»СЊС€РµРЅРёР№ С€СЂРёС„С‚ */
-            letter-spacing: 0.8px; /* Р‘С–Р»СЊС€РёР№ С–РЅС‚РµСЂРІР°Р» */
+        .staff-member p {
+            color: var(--text-muted);
+            margin: 0;
         }
 
-        /* --- Scrollbar Styles: РџС–РґРєСЂРµСЃР»РµРЅРЅСЏ РґРёР·Р°Р№РЅСѓ --- */
-        ::-webkit-scrollbar {
-            width: 14px; /* РўРѕРІСЃС‚С–С€РёР№ scrollbar */
+        .google-sheet-embed {
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden; /* Ensure consistent border-radius */
         }
 
-        ::-webkit-scrollbar-track {
-            background: var(--darker);
-            border-radius: 10px; /* Р—Р°РѕРєСЂСѓРіР»РµРЅРёР№ С‚СЂРµРє */
+        .google-sheet-embed iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block; /* Remove extra space below iframe */
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--gold), var(--accent), var(--primary-light)); /* Р РѕР·С€РёСЂРµРЅРёР№ РіСЂР°РґС–С”РЅС‚ */
-            border-radius: 8px; /* Р—Р°РѕРєСЂСѓРіР»РµРЅРёР№ thumb */
-            border: 3px solid var(--darker); /* РўРѕРІСЃС‚С–С€Р° СЂР°РјРєР° */
-            transition: background var(--transition-fast);
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 40px 0;
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #FFEB80, #FF8C00, #CD5C5C); /* Р—РјС–РЅР° РіСЂР°РґС–С”РЅС‚Р° РїСЂРё С…РѕРІРµСЂС– */
-        }
-
-        /* --- Animation Effects: РџРѕРєСЂР°С‰РµРЅС– С‚Р° РЅРѕРІС– Р°РЅС–РјР°С†С–С— --- */
-        /* Р—Р°РіР°Р»СЊРЅР° Р°РЅС–РјР°С†С–СЏ РїРѕСЏРІРё РµР»РµРјРµРЅС‚С–РІ */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Specific animations for better user experience */
-        .gallery-item, 
-        .hierarchy-table tr, 
-        .accordion, 
-        .disciplinary-table tr {
-            /* РџСЂРёР±РёСЂР°С”РјРѕ РїРѕС‡Р°С‚РєРѕРІС– inline СЃС‚РёР»С– Р· JS, CSS Р±СѓРґРµ РєРѕРЅС‚СЂРѕР»СЋРІР°С‚Рё */
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity var(--transition-smooth), transform var(--transition-smooth);
-        }
-
-        /* Responsive Styles: РђРґР°РїС‚СѓС”РјРѕ РґР»СЏ РІСЃС–С… РїСЂРёСЃС‚СЂРѕС—РІ */
-        @media (max-width: 1200px) {
-            .container {
-                width: 95%;
-            }
-            h1 { font-size: 3.8rem; }
-            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-            .promotion-system { padding: 50px; }
-        }
-
-        @media (max-width: 992px) {
-            h1 { font-size: 3.2rem; }
-            .subtitle { font-size: 1.25rem; }
-            .gallery-title, .section-title { font-size: 2.8rem; }
-            .gallery-grid { gap: 25px; }
-            .promotion-system { padding: 40px; }
-            .accordion { font-size: 1.1rem; padding: 22px; }
-            .panel li { font-size: 1rem; }
-            .hierarchy-table th, .hierarchy-table td { padding: 18px 25px; }
+        footer {
+            background-color: var(--secondary-dark);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            border-top: 2px solid var(--accent-color);
         }
 
         @media (max-width: 768px) {
-            header { padding: 40px 0; margin-bottom: 50px; }
-            h1 { font-size: 2.8rem; }
-            .logo img { height: 100px; }
-            .subtitle { font-size: 1.15rem; }
-            .gallery-title, .section-title { font-size: 2.4rem; }
-            .gallery-grid { grid-template-columns: 1fr; gap: 20px; }
-            .hierarchy-table th, .hierarchy-table td { padding: 15px 20px; font-size: 0.9rem; }
-            .promotion-system { padding: 30px; }
-            .accordion { padding: 18px; font-size: 1rem; }
-            .panel ul { padding: 20px; }
-            .panel li { padding: 10px 0 10px 35px; font-size: 0.95rem; }
-            .note { padding: 20px; margin: 25px 0; }
-            .social-links a { width: 55px; height: 55px; font-size: 24px; }
-        }
+            header h1 {
+                font-size: 2em;
+            }
 
-        @media (max-width: 576px) {
-            body { padding: 15px; }
-            h1 { font-size: 2.2rem; }
-            h1::after { width: 120px; bottom: -10px; }
-            .subtitle { font-size: 1rem; padding: 0 10px; }
-            .gallery-title, .section-title { font-size: 2rem; margin-bottom: 25px; }
-            .gallery-title::after, .section-title::after { width: 100px; margin: 15px auto; }
-            .search-container { flex-direction: column; gap: 15px; margin-bottom: 30px; }
-            #searchInput { padding: 14px 20px; font-size: 15px; max-width: 100%; }
-            .toggle-btn { padding: 14px 25px; font-size: 15px; width: 100%; }
-            .hierarchy-table th, .hierarchy-table td { padding: 12px 15px; font-size: 0.85rem; }
-            .promotion-system { padding: 20px; margin: 50px 0; }
-            .accordion { padding: 15px; font-size: 0.95rem; }
-            .panel { border-radius: 0 0 8px 8px; }
-            .panel ul { padding: 15px; }
-            .panel li { padding: 8px 0 8px 30px; font-size: 0.9rem; }
-            .panel li::before { top: 10px; font-size: 12px; }
-            .note { padding: 15px; margin: 20px 0; font-size: 0.9rem; }
-            .note::before { left: -12px; top: -12px; width: 25px; height: 25px; font-size: 14px; }
-            footer { padding: 40px 0; margin-top: 50px; }
-            .social-links { margin: 20px 0; gap: 20px; }
-            .social-links a { width: 50px; height: 50px; font-size: 22px; }
-            .copyright { font-size: 13px; }
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            summary {
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
 <body>
-  <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="https://ukraine-gta.com.ua/images/main-img/logo.png" alt="Ukraine GTA Logo">
-            </div>
-            <h1>Адміністрація Ukraine GTA</h1>
-            <p class="subtitle">Наша команда - це одна велика родина, яка працює задля комфортної гри кожного гравця</p>
+    <header>
+        <div class="header-content">
+            <img src="https://ukraine-gta.com.ua/images/main-img/logo.png" alt="Логотип UKRAINE GTA">
+            <h1>Помічник для Слідкуючих Неофіційних Організацій</h1>
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <section class="gallery-section">
-                <h2 class="gallery-title">Наші моменти</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://i.imgpile.com/eLjXBxP.jpg" alt="Момент 1">
-                        <div class="gallery-caption">Наша команда</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgpile.com/BhTWfE8.jpg" alt="Момент 2">
-                        <div class="gallery-caption">Робочий процес</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgpile.com/YMJcwvx.jpg" alt="Момент 3">
-                        <div class="gallery-caption">Зустріч</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgpile.com/jgrps8c.jpg" alt="Момент 4">
-                        <div class="gallery-caption">Обговорення</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgpile.com/O9W4Enm.jpg" alt="Момент 5">
-                        <div class="gallery-caption">Спілкування</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgpile.com/r2V28QI.jpg" alt="Момент 6">
-                        <div class="gallery-caption">Презентація</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://i.imgpile.com/NXcORmI.jpg" alt="Момент 7">
-                        <div class="gallery-caption">Натхнення</div>
-                    </div>
-                </div>
-            </section>
+    <nav>
+        <ul>
+            <li><a href="#rules-kidnappings">Викрадення</a></li>
+            <li><a href="#rules-terrorist-acts">Теракти</a></li>
+            <li><a href="#rules-armament-supply">Постачання Озброєння</a></li>
+            <li><a href="#rules-clan-treasury">Битви за Общак</a></li>
+            <li><a href="#rules-clan-reprimands">Система Доган Кланів</a></li>
+            <li><a href="#rules-clan-wars-alliances">Війни & Союзи Кланів</a></li>
+            <li><a href="#staff-info">Склад Адміністрації</a></li>
+        </ul>
+    </nav>
 
-            <section class="hierarchy-section">
-                <h2 class="section-title">Ієрархія адміністрації</h2>
-                
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Пошук за ім'ям або посадою...">
-                    <button class="toggle-btn" id="toggleHierarchy">Приховати нижчі рівні</button>
+    <div class="container">
+        <section id="rules-kidnappings">
+            <h2><a href="#rules-kidnappings" style="color: inherit; text-decoration: none;">I. ПРАВИЛА ВИКРАДЕНЬ</a></h2>
+            <details open>
+                <summary>ОСНОВНІ ПРАВИЛА</summary>
+                <div class="content">
+                    <ol>
+                        <li>Проводити викрадення можуть всі гравці, які перебувають у клані, однак керувати викраденням повинен гравець **старшого складу (лідер, модератор)**.</li>
+                        <li>Для викрадення повинні бути: **об'єктивна причина, кінцева мета, а також план дій**.</li>
+                        <li>Викрадачів має бути **втричі більше**, ніж осіб, яких викрадають.</li>
+                        <li>Викрадати людей дозволено тільки в **безлюдних місцях і провулках**.</li>
+                        <li>Мінімальний інтервал між викраденнями на всі кримінальні угрупування - **4 години**.</li>
+                        <li>На викрадачах мають бути присутні **маски**.</li>
+                        <li>Викрадення проводяться з **10:00 до 23:59 за київським часом**.</li>
+                        <li>Викрадачі мають право вбити заручника, якщо силові структури не виконали висунуті вимоги у встановлений термін, але не раніше ніж через **20 хвилин** після висунення вимоги.</li>
+                        <li>Під час викрадення заборонено весь час утримувати жертву в повітряному просторі (**не більше 15 хвилин**).</li>
+                    </ol>
                 </div>
-                
-                <table class="hierarchy-table">
-                    <thead>
-                        <tr>
-                            <th>Посада</th>
-                            <th>Ім'я</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="level-1">
-                            <td>Керівник проекту</td>
-                            <td>Сергій Коваленко</td>
-                        </tr>
-                        
-                        <tr class="level-2">
-                            <td>Технічний Адміністратор</td>
-                            <td>Максим Петрушка</td>
-                        </tr>
-                        <tr class="level-2">
-                            <td>Головний Адміністратор</td>
-                            <td>Валерія Савченко</td>
-                        </tr>
-                        <tr class="level-2">
-                            <td>Заступник Головного Адміністратора</td>
-                            <td>Серго Голд</td>
-                        </tr>
-                        
-                        <tr class="level-3">
-                            <td>Старший Адміністратор</td>
-                            <td>Олександр Несторович <span class="rank-badge">КА</span></td>
-                        </tr>
-                        <tr class="level-3">
-                            <td>Старший Адміністратор</td>
-                            <td>Нікіта Карпенко <span class="rank-badge">ГС Держ</span></td>
-                        </tr>
-                        <tr class="level-3">
-                            <td>Старший Адміністратор</td>
-                            <td>Данієль Хомс <span class="rank-badge">ГС Неоф</span></td>
-                        </tr>
-                        <tr class="level-3">
-                            <td>Старший Адміністратор</td>
-                            <td>Вікторія Кизима <span class="rank-badge">ЗГС Держ</span></td>
-                        </tr>
-                        <tr class="level-3">
-                            <td>Старший Адміністратор</td>
-                            <td>Олександр Пуля <span class="rank-badge">ЗГС Неоф</span></td>
-                        </tr>
-                        <tr class="level-3">
-                            <td>Старший Адміністратор</td>
-                            <td>Іра Біла</td>
-                        </tr>
-                        <tr class="level-3">
-                            <td>Старший Адміністратор</td>
-                            <td>Євгеній Левченко</td>
-                        </tr>
-                        
-                        <tr class="level-4">
-                            <td>Адміністратор</td>
-                            <td>Артем Українець</td>
-                        </tr>
-                        <tr class="level-4">
-                            <td>Адміністратор</td>
-                            <td>Михайло Медвідь</td>
-                        </tr>
-                        <tr class="level-4">
-                            <td>Адміністратор</td>
-                            <td>Ярослав Свиридов</td>
-                        </tr>
-                        <tr class="level-4">
-                            <td>Адміністратор</td>
-                            <td>Рокса Буданова</td>
-                        </tr>
-                        <tr class="level-4">
-                            <td>Адміністратор</td>
-                            <td>Ян Карпенко</td>
-                        </tr>
-                        <tr class="level-4">
-                            <td>Адміністратор</td>
-                            <td>Віталій Крупич</td>
-                        </tr>
-                        
-                        <tr class="level-5">
-                            <td>Старший Модератор</td>
-                            <td>Дмитро Морріс</td>
-                        </tr>
-                        <tr class="level-5">
-                            <td>Старший Модератор</td>
-                            <td>Євгенія Тимощук</td>
-                        </tr>
-                        <tr class="level-5">
-                            <td>Старший Модератор</td>
-                            <td>Бодя Гаресон</td>
-                        </tr>
-                        <tr class="level-5">
-                            <td>Старший Модератор</td>
-                            <td>Вінстон Блейз</td>
-                        </tr>
-                        <tr class="level-5">
-                            <td>Старший Модератор</td>
-                            <td>Ілля Гудименко</td>
-                        </tr>
-                        <tr class="level-5">
-                            <td>Старший Модератор</td>
-                            <td>Дарина Бабусь</td>
-                        </tr>
-                        <tr class="level-5">
-                            <td>Старший Модератор</td>
-                            <td>Вадим Хефнер</td>
-                        </tr>
-                        
-                        <tr class="level-6">
-                            <td>Модератор</td>
-                            <td>Роман Карпенко</td>
-                        </tr>
-                        <tr class="level-6">
-                            <td>Модератор</td>
-                            <td>Кирило Медвідь</td>
-                        </tr>
-                        <tr class="level-6">
-                            <td>Модератор</td>
-                            <td>Генрі Вінчестер</td>
-                        </tr>
-                        <tr class="level-6">
-                            <td>Модератор</td>
-                            <td>Іван Дефо</td>
-                        </tr>
-                        <tr class="level-6">
-                            <td>Модератор</td>
-                            <td>Олександр Житомирський</td>
-                        </tr>
-                        <tr class="level-6">
-                            <td>Модератор</td>
-                            <td>Денис Архангел</td>
-                        </tr>
-                        
-                        <tr class="level-7">
-                            <td>Ігровий Помічник</td>
-                            <td>Руслан Степовий</td>
-                        </tr>
-                        <tr class="level-7">
-                            <td>Ігровий Помічник</td>
-                            <td>Олександр Коляда</td>
-                        </tr>
-                        <tr class="level-7">
-                            <td>Ігровий Помічник</td>
-                            <td>Андрюха Вінчестер</td>
-                        </tr>
-                        <tr class="level-7">
-                            <td>Ігровий Помічник</td>
-                            <td>Денис Айронс</td>
-                        </tr>
-                        <tr class="level-7">
-                            <td>Ігровий Помічник</td>
-                            <td>Даніл Торетто</td>
-                        </tr>
-                        <tr class="level-7">
-                            <td>Ігровий Помічник</td>
-                            <td>Леонід Нижник</td>
-                        </tr>
-                        <tr class="level-7">
-                            <td>Ігровий Помічник</td>
-                            <td>Андрій Шевцов</td>
-                        </tr>
-                        <tr class="level-7">
-                            <td>Ігровий Помічник</td>
-                            <td>Сергій Шевченков</td>
-                        </tr>
-                        <tr class="level-7">
-                            <td>Ігровий Помічник</td>
-                            <td>Ярослав Климов</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+            </details>
 
-            <section class="promotion-system">
-                <h2 class="section-title">Система підвищення</h2>
-                
-                <button class="accordion">З 1 на 2 рівень: по заявці з форуму</button>
-                <div class="panel">
-                    <ul>
-                        <li>**Активна робота** протягом 20-25 діб (На розсуд КА/ЗГА/ГА);</li>
-                        <li>**Загальна кількість репортів** 2000;</li>
-                        <li>**Вміння використовувати надані команди** адміністратора у грі;</li>
-                        <li>**Вміння швидко реагувати** на порушення правил серверу від гравців у грі;</li>
-                        <li>**Адміністратор повинен бути в змозі надавати допомогу** гравцям, які звертаються до нього з проблемами на сервері;</li>
-                        <li>**Адміністратор повинен ретельно вивчити всі правила сервера** та бути в змозі пояснити їх гравцям. Також, він повинен бути в змозі ефективно застосовувати правила, коли вони порушуються;</li>
-                        <li>**Проходження підсумкового тесту** для перевірки отриманих знань під час проходження курсу в академії;</li>
-                    </ul>
+            <details>
+                <summary>ВИКОРИСТАННЯ СТЯЖОК</summary>
+                <div class="content">
+                    <ol start="10">
+                        <li>Заборонено заковувати людей в стяжки в зеленій зоні. **/jail 30 /warn**</li>
+                        <li>Заборонено одягати стяжки без RP відігровки в текстовий чат. **/jail 15**</li>
+                        <li>Заборонено надягати стяжки на гравця для перешкоджання грі. **/jail 120 або warn**</li>
+                        <li>Заборонено надягати стяжки на гравця, який не досяг **5 ігрового рівня**. **/jail 30**</li>
+                        <li>При викраденні заборонено надягати стяжки більше ніж на **одного гравця**. **/jail 30**</li>
+                        <li>Заборонено тримати гравця в стяжках більше ніж **30 хвилин** (виключення: проведення теракту). **/jail 60**</li>
+                        <li>Заборонено вбивати гравця, який знаходиться в стяжках (виключення: якщо є вагома РП причина). **/jail 60**</li>
+                        <li>Заборонено надягати стяжки на гравця в інтер'єрі будинку/картеля/бункер (виключення: проведення теракту). **/jail 30**</li>
+                    </ol>
                 </div>
-                
-                <button class="accordion">З 1 на 2 рівень: Лідер / Заступник / Фракції / Клану</button>
-                <div class="panel">
-                    <ul>
-                        <li>**Активна робота** протягом 15 діб;</li>
-                        <li>**Загальна кількість репортів** 1500;</li>
-                        <li>**Вміння використовувати надані команди** адміністратора у грі;</li>
-                        <li>**Вміння швидко реагувати** на порушення правил серверу від гравців у грі;</li>
-                        <li>**Адміністратор повинен бути в змозі надавати допомогу** гравцям, які звертаються до нього з проблемами на сервері;</li>
-                        <li>**Адміністратор повинен ретельно вивчити всі правила сервера** та бути в змозі пояснити їх гравцям. Також, він повинен бути в змозі ефективно застосовувати правила, коли вони порушуються;</li>
-                        <li>**Проходження підсумкового тесту** для перевірки отриманих знань під час проходження курсу в академії;</li>
-                    </ul>
-                </div>
-                
-                <button class="accordion">З 2 на 3 рівень</button>
-                <div class="panel">
-                    <ul>
-                        <li>**Активна робота** протягом місяця;</li>
-                        <li>**Вміння використовувати надані команди** адміністратора у грі;</li>
-                        <li>**Не мати доган/попереджень чи конфліктів**;</li>
-                        <li>**Вміння швидко реагувати** на порушення правил серверу від гравців у грі;</li>
-                        <li>**Адміністратор повинен бути в змозі надавати допомогу** гравцям, які звертаються до нього з проблемами на сервері;</li>
-                        <li>**Адміністратор повинен ретельно вивчити всі правила сервера** та бути в змозі пояснити їх гравцям. Також, він повинен бути в змозі ефективно застосовувати правила, коли вони порушуються;</li>
-                    </ul>
-                </div>
-                
-                <button class="accordion">З 3 на 4 рівень</button>
-                <div class="panel">
-                    <ul>
-                        <li>**Активна робота** протягом двох місяців;</li>
-                        <li>**Вміння використовувати надані команди** адміністратора у грі;</li>
-                        <li>**Не мати доган/попереджень чи конфліктів**;</li>
-                        <li>**Вміння швидко реагувати** на порушення правил серверу від гравців у грі;</li>
-                        <li>**Адміністратор повинен бути в змозі надавати допомогу** гравцям, які звертаються до нього з проблемами на сервері, а також іншим адміністраторам, які потребують допомоги;</li>
-                        <li>**Адміністратор повинен ретельно вивчити всі правила сервера** та бути в змозі пояснити їх гравцям. Також, він повинен бути в змозі ефективно застосовувати правила, коли вони порушуються;</li>
-                    </ul>
-                </div>
-                
-                <button class="accordion">З 4 на 5 рівень</button>
-                <div class="panel">
-                    <ul>
-                        <li>**Активна робота** протягом чотирьох місяців;</li>
-                        <li>**Вміння використовувати надані команди** адміністратора у грі;</li>
-                        <li>**Не мати доган/попереджень чи конфліктів**;</li>
-                        <li>**Вміння швидко реагувати** на порушення правил серверу від гравців у грі;</li>
-                        <li>**Адміністратор повинен бути в змозі надавати допомогу** гравцям, які звертаються до нього з проблемами на сервері, а також іншим адміністраторам, які потребують допомоги;</li>
-                        <li>**Адміністратор повинен вміти налагоджувати контакт** з гравцями і іншими адміністраторами, щоб вирішувати будь-які проблеми на сервері;</li>
-                        <li>**Адміністратор повинен бути активним та здатним запропонувати нові ідеї** для покращення роботи сервера та поліпшення досвіду гравців;</li>
-                        <li>**Адміністратор повинен ретельно вивчити всі правила сервера** та бути в змозі пояснити їх гравцям. Також, він повинен бути в змозі ефективно застосовувати правила, коли вони порушуються;</li>
-                    </ul>
-                </div>
-                
-                <div class="note">
-                    <p><strong>Примітка:</strong> На 5-й рівень адміністратор призначається на розсуд ГА/ЗГА. 5-им рівнем є ГС / ЗГС</p>
-                    <p><strong>Примітка:</strong> ГА/ЗГА має право підвищити раніше терміну, вказаного вище за активну роботу.</p>
-                    <p><strong>Примітка:</strong> ГА/ЗГА має право понизити рівень Адміністратора, за грубі порушення або на власний розсуд.</p>
-                    <p><strong>Примітка:</strong> Заборонено постійно нагадувати про підвищення/просити підвищення без аргументів на це.</p>
-                </div>
-            </section>
+            </details>
 
-            <section class="disciplinary-actions">
-                <h2 class="section-title">Дисциплінарні стягнення</h2>
-                
-                <table class="disciplinary-table">
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Причина</th>
-                            <th>Сума штрафу (А-коіни)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Некоректно видане покарання</td>
-                            <td class="fine-amount">50 - 250</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Накрутка репортів</td>
-                            <td class="fine-amount">150</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Некоректно розглянута скарга</td>
-                            <td class="fine-amount">50 - 250</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Прогул робочої зміни (отримання відсутньої норми)</td>
-                            <td class="fine-amount">100</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Натягнута норма</td>
-                            <td class="fine-amount">25 – 75</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Пропуск зборів без поважної причини</td>
-                            <td class="fine-amount">100</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Отримання догани</td>
-                            <td class="fine-amount">На розсуд ГА / ЗГА</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Використання адмін можливостей у власних цілях</td>
-                            <td class="fine-amount">150 - 300</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Некоректні дії під час роботи на репорті</td>
-                            <td class="fine-amount">25 – 100</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>Порушення правил комунікації</td>
-                            <td class="fine-amount">100 - 300</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>Невчасна подача звіту</td>
-                            <td class="fine-amount">100 – 250</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>Халатне відношення до посади</td>
-                            <td class="fine-amount">100 - 500</td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td>Некоректне використання rpadmin</td>
-                            <td class="fine-amount">150</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="note">
-                    <p><strong>Примітка:</strong> Якщо в адміністратора баланс коінів менше суми штрафу - видається дисциплінарне покарання.</p>
+            <details>
+                <summary>ДОЗВОЛЕНО</summary>
+                <div class="content">
+                    <ol start="18">
+                        <li>Позбутися заручника рольовим шляхом, якщо вимоги викрадачів не були виконані (вважається за рольове вбивство).</li>
+                        <li>Зв'язуватися із силовими структурами через рацію департаменту або прямий ефір ТРК (при цьому не порушувати правила стосовно реклами, не виражатися матом і т.д.).</li>
+                        <li>Просити "зелений коридор" для безпечного відходу або матеріальні цінності, у такому разі співробітники державних організацій зобов'язані їх надати.</li>
+                        <li>У разі неуспішного результату переговорів, обидві сторони можуть застосовувати спеціальні засоби до всіх, хто становить загрозу будь-якій зі сторін.</li>
+                    </ol>
                 </div>
-            </section>
-        </div>
-    </main>
+            </details>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <details>
+                <summary>ЗАБОРОНЕНО</summary>
+                <div class="content">
+                    <ol start="22">
+                        <li>Вчинення викрадення гравцями, які не перебувають у кримінальному угрупуванні. **/jail 30**</li>
+                        <li>Проведення викрадення без маски. **/jail 30**</li>
+                        <li>Ігнорування необхідної кількості гравців для викрадення. **/jail 30**</li>
+                        <li>Відігравання будь-яких дій на свою користь та/або ігнорування відігравань інших гравців. **/jail 30**</li>
+                        <li>Повертатися на місце своєї смерті. **/jail 120 /warn**</li>
+                        <li>Викрадення гравця(-ів), які не досягли **10 ігрового рівня**. **/jail 30**</li>
+                        <li>Викрадати гравців у населених пунктах, громадських місцях, зелених зонах. **/jail 60**</li>
+                        <li>Викрадати гравців, які перебувають AFK. **/jail 15**</li>
+                        <li>Викрадення представників кримінальних структур. **/jail 30**</li>
+                        <li>Проводити викрадення поза встановленим часом. **/jail 30**</li>
+                        <li>Недотримання інтервалу викрадень (викрадати одного гравця частіше, ніж раз на 48 годин). **/jail 60**</li>
+                        <li>Ігнорування цілей викрадення, навмисне безпричинне утримання гравця. **/jail 120**</li>
+                        <li>Убивство заручника без вагомих підстав. **/jail 60 - 120**</li>
+                        <li>Наносити шкоду по заручнику (для нанесення шкоди необхідно використовувати кулаки). **/jail 60**</li>
+                        <li>Виходити з гри відразу після отримання викупу. **/jail 120 /warn**</li>
+                        <li>Ігнорування встановлених сум викупів заручників. **/jail 60**</li>
+                        <li>Ігнорування взаємодії силових структур із викрадачами. **/jail 60**</li>
+                        <li>Привозити викрадених у будь-який інтер'єр. **/jail 60 /warn**</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>ВСТАНОВЛЕНІ СУМИ ПО ВИКРАДЕННЯМ</summary>
+                <div class="content table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ранг</th>
+                                <th>Викуп (грн)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1 ранг</td><td>15.000 грн.</td></tr>
+                            <tr><td>2 ранг</td><td>30.000 грн.</td></tr>
+                            <tr><td>3 ранг</td><td>45.000 грн.</td></tr>
+                            <tr><td>4 ранг</td><td>60.000 грн.</td></tr>
+                            <tr><td>5 ранг</td><td>75.000 грн.</td></tr>
+                            <tr><td>6 ранг</td><td>90.000 грн.</td></tr>
+                            <tr><td>7 ранг</td><td>105.000 грн.</td></tr>
+                            <tr><td>8 ранг</td><td>120.000 грн.</td></tr>
+                            <tr><td>9 ранг</td><td>135.000 грн.</td></tr>
+                            <tr><td>10 ранг</td><td>150.000 грн.</td></tr>
+                            <tr><td>11 ранг</td><td>165.000 грн.</td></tr>
+                            <tr><td>12 ранг</td><td>180.000 грн.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </section>
+        ---
+
+        <section id="rules-terrorist-acts">
+            <h2><a href="#rules-terrorist-acts" style="color: inherit; text-decoration: none;">II. ПРАВИЛА ПРОВЕДЕННЯ ТЕРАКТІВ</a></h2>
+            <details open>
+                <summary>ОСНОВНІ ПРАВИЛА</summary>
+                <div class="content">
+                    <ol>
+                        <li>На тиждень від одного клану може проходити **не більше одного теракту**.</li>
+                        <li>Проводити теракти можуть **TOP 3 клани**.</li>
+                        <li>Лідер/модератор клану зобов'язаний вести **відеозапис RP ситуації** і в разі необхідності протягом **24 годин** передати його слідкуючій адміністрації.</li>
+                        <li>Теракти можна проводити в будівлях: **СБУ, НПУ, ДСНС, ЗМІ**.</li>
+                        <li>У разі бездоганно відіграного, вдалого RP теракту клану в общак зачислюється **3.000.000 грн**.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>ПРАВИЛА ДЛЯ ТЕРОРИСТІВ</summary>
+                <div class="content">
+                    <ol start="6">
+                        <li>На теракті мають бути присутні **мінімум 15 озброєних людей** (без винятку).</li>
+                        <li>При проведенні теракту в мережі повинні перебувати лідери/заступники СБУ та НПУ (/leaders).</li>
+                        <li>Заборонено вбивати гравців просто так, проте дозволяється їх вбивати, якщо вони намагаються втекти/завадити проведенню теракту, або порушують нахабним чином правила сервера (ви направляєте на них зброю, а вони спокійно ходять).</li>
+                        <li>Необхідно дотримуватися розцінок викупу (написані вище).</li>
+                        <li>Якщо фракція проводить теракт із бомбою, то члени фракції повинні відіграти її встановлення за RP, а в разі отримання викупу потрібно відпустити заручників і цю бомбу розмінувати.</li>
+                        <li>Необхідно мати **кінцеву мету і мотив**.</li>
+                        <li>Загарбникам необхідно бути присутніми в **масці**.</li>
+                        <li>Якщо умови загарбників не виконані, то вони мають право вбити всіх заручників.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>ПРАВИЛА ДЛЯ ПРАВООХОРОННИХ ОРГАНІВ</summary>
+                <div class="content">
+                    <ol start="14">
+                        <li>**СБУ** являється керуючої організацією при участі в такій RP ситуації.</li>
+                        <li>Співробітник СБУ від **11-го рангу (включно)** являється керуючим спец. операцією (в разі присутності лідера - керуючий він).</li>
+                        <li>Правоохоронні організації повинні оточити об'єкт, що захоплюється.</li>
+                        <li>На переговори має виходити співробітник СБУ **без зброї**.</li>
+                        <li>Заборонено ставити свої умови (у разі невиконання яких буде оголошено штурм).</li>
+                        <li>Штурм можна оголосити в разі, якщо загарбники не дотримуються договору/убивають заручників/відмовляються когось відпускати.</li>
+                        <li>Під час штурму дозволено вбивати загарбників.</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+        ---
+
+        <section id="tips">
+            <h2><a href="#tips" style="color: inherit; text-decoration: none;">III. ПІДКАЗКИ</a></h2>
+            <details open>
+                <summary>ПІДКАЗКИ ЩОДО ВИКРАДЕНЬ</summary>
+                <div class="content">
+                    <ol>
+                        <li>**Підказка 1:** Коли викрадаєте державного службовця, робіть це непомітно. Якщо ви почнете затолкувати його в машину посеред міста - велика ймовірність, що вас помітять, і викрадення провалиться ще не почавшись. Вам потрібно продумати план дій, наприклад, якщо ви хочете викрасти співробітника НПУ - підготуйте місце викрадення подалі від міста та подзвоніть до поліції, вигадавши причину. Після приїзду співробітника він буде в пастці, і ви зможете його захопити. Проте, будьте уважні, навіть у наведеній ситуації щось може піти не так, наприклад, замість одного поліцейського приїдуть двоє, а може навіть оперативна група, тому заздалегідь продумайте відступні шляхи (план А, план Б, план В і т.д.).</li>
+                        <li>**Підказка 2:** Під час перемовин ніколи не давайте правоохоронцям інформацію про місцезнаходження заручників та/або місцезнаходження великої групи терористів до моменту переведення коштів. Не погоджуйтесь на те, щоб перемовник потрапив до місця, де утримують заручників, краще надішліть свого перемовника до правоохоронців, який буде виступати від лиця терористів.</li>
+                        <li>**Підказка 3:** Після отримання викупу та перед тим, як відпустити заручників, ви повинні впевнитись, що вас не знайдуть, не наздоженуть або не затримають (через амністію Суду/Президента).</li>
+                        <li>**Підказка 4:** Перед початком викрадення/теракту повідомте про це слідкуючу за неоф адміністрацію через `/report`, щоб вони прослідкували, якщо не будуть зайняті.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>ПІДКАЗКИ ЩОДО ПРОВЕДЕННЯ ТЕРАКТІВ</summary>
+                <div class="content">
+                    <ol>
+                        <li>**Підказка 1:** Так само як і при викраденні, детально продумайте план дій. Якщо на викрадення приїдуть декілька патрулів поліції, то на теракт із захопленням заручників приїдуть всі силові структури, які легко зможуть оточити квартал та саму будівлю. Вам завжди треба мати важіль тиску, щоб навіть коли ви відпустите заручників та отримаєте викуп, ви були впевнені, що вас не будуть переслідувати.</li>
+                        <li>**Підказка 2:** За 24 години до проведення теракту повідомте про дату та час ГС/ЗГС Неоф, щоб вони прослідкували.</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+        ---
+
+        <section id="rules-armament-supply">
+            <h2><a href="#rules-armament-supply" style="color: inherit; text-decoration: none;">I. ПРАВИЛА ПОСТАВКИ ОЗБРОЄННЯ</a></h2>
+            <details open>
+                <summary>ЗАГАЛЬНІ ПРАВИЛА</summary>
+                <div class="content">
+                    <ol>
+                        <li>Адміністрація має право вносити зміни в правила в будь-який момент. Про усі зміни буде повідомлено обидві сторони учасників.</li>
+                        <li>Постачання матеріалів є РП заходом, крім правил, наведених нижче, на захід також поширюються інші правила сервера. **Виключення: Дозволено PG з обох сторін.**</li>
+                        <li>Ці правила починають діяти з моменту виїзду конвою з аеропорту і до розвантаження матеріалів на склад державної організації.</li>
+                        <li>Постачання матеріалів має розпочинатися щовівторка та щосуботи в період з **18:00 до 19:00**. <br>Примітка: В цей період часу конвой вже має бути загруженим боєприпасами та покинути один із аеропортів.</li>
+                        <li>Кожна організація та кожний клан, що приймає участь у поставці, повинна мати хоча б один повний фрапс від учасника поставки, у якому видно від початку, як особовий склад виїжджає до аеропорту, до моменту закінчення поставки.
+                            <ol>
+                                <li>Адміністрація може запросити відкат протягом **24 годин** з моменту закінчення поставки. | **Відкат постачання у протилежний бік, мінус бали лідеру**<br>Вимоги до відеозапису: Якість відеозапису не менше 720р, Необроблене зображення та звук.</li>
+                                <li>На відеофіксації мають бути присутні всі RP відігровки, які використовувались під час поставки на будь-якому етапі.</li>
+                                <li>Всі RP відігровки мають проходити в чаті. (**`/me`, `/do`**).</li>
+                            </ol>
+                        </li>
+                        <li>Неофіційним організаціям заборонено займати територію аеропорту, а так само в зоні менше **350м** від нього.<br>Примітка: заборонено нападати на конвой до моменту його завантаження на одному із аеропортів.</li>
+                        <li>Заборонено проводити затримання нападників на конвой.</li>
+                        <li>Під час перекриття дороги конвой зобов’язаний зупинитися та прийняти бій. Заборонено таранити авто з метою звільнення смуги руху.</li>
+                        <li>Під час перестрілки дозволено використовувати всі види зброї. У випадку, якщо одна із сторін користується багоюзом будь-якого виду зброї - клан/фракція автоматично отримують догану, а напад на поставку/поставка вважається провальною.</li>
+                        <li>Під час поставки, працівникам державних організацій заборонено використовувати **ОТЗ**.</li>
+                        <li>У поставці може приймати участь **2 лікарі**. Вони зобов’язані перебувати на СТЗ і не приймати участь у перестрілці. Лікувати дозволено лише після повного закінчення перестрілки (відсутність противника в зоні видимості). При цьому вони зобов’язані вилікувати сторону переможців.<br>Примітка: за неповажне або неадекватне ставлення до лікаря він має право відмовити в лікуванні.</li>
+                        <li>Заборонено сідати, відвозити, утримувати та викрадати КРАЗ до закінчення перестрілки.</li>
+                        <li>Дозволено використовувати алкоголь/наркотики/аптечки і т.д. лише в укритті.</li>
+                        <li>Заборонено вести вогонь з транспорту.</li>
+                        <li>Дозволено відкривати вогонь по гвинтокрилах обох сторін. Після виведення його зі строю, відповідна сторона більше не може його використовувати.
+                            <ol>
+                                <li>Заборонено вбивати пілота та пасажира гвинтокрилів. Після збиття транспортного засобу, вони повинні покинути місце і, відповідно, їх участь у поставці закінчується.</li>
+                            </ol>
+                        </li>
+                        <li>Під час поставки з обох сторін мають бути присутні **члени старшого складу** усіх кланів/фракцій, що задіяні в ній.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>II. ПРАВИЛА ПЕРЕХОПЛЕННЯ ПОСТАВКИ ОЗБРОЄННЯ</summary>
+                <div class="content">
+                    <ol>
+                        <li>У постачанні озброєння мають право приймати участь від **20 до 35 нападників**.
+                            <ol>
+                                <li>Дозволено використовувати гвинтокрил для розвідки. У ньому може перебувати лише **1 пасажир**.</li>
+                                <li>Пілот та пасажир авто не враховуються в список нападників.</li>
+                                <li>Пілоту та пасажиру заборонено приймати участь в перестрілці. Вони використовуються лише для отримання інформації щодо кортеджу.</li>
+                            </ol>
+                        </li>
+                        <li>Заборонено наносити шкоду гравцям, які не приймають участі в поставці.
+                            <ol>
+                                <li>Дозволено вбивати гравців, які навмисно перешкоджають нападу.</li>
+                            </ol>
+                        </li>
+                        <li>Дозволено займати дахи будівель для нападу.
+                            <ol>
+                                <li>Заборонено займати дахи будівель, які перебувають в GZ.</li>
+                                <li>Дозволено займати дахи будівель за допомогою парашутів/гвинтокрилів. У випадку з гвинтокрилом, на даху має бути певна ділянка, куди він може приземлитися.</li>
+                                <li>Дах має бути у зоні видимості з точки перекриття дороги.</li>
+                            </ol>
+                        </li>
+                        <li>Нападати на поставку можуть лише учасники **ТОП 10 кланів**.</li>
+                        <li>Під час перестрілки заборонено спавнити авто.</li>
+                        <li>Під час нападу на поставку бандити зобов’язані перекрити дорогу.
+                            <ol>
+                                <li>Для перекриття дороги дозволено використовувати від **4 до 10 авто**.</li>
+                                <li>Авто мають перекривати усі смуги для руху на обраній ділянці дороги.</li>
+                            </ol>
+                        </li>
+                        <li>Заборонено викрадати учасників поставки.</li>
+                        <li>Дозволено проводити напади на прилеглі до визначеного маршруту блокпости.</li>
+                        <li>Заборонено використовувати анімації.</li>
+                        <li>Кожен нападник зобов’язаний перебувати в аксесуарі, який повністю або частково прикриває лице.</li>
+                        <li>У разі порушень з боку бандитів, за рішенням ГА/ЗГА або ГС Держ/Неоф, постачання можуть відкатити та віддати приз державним структурам.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>ОТРИМАННЯ ВИНАГОРОДИ</summary>
+                <div class="content">
+                    <ol>
+                        <li>У разі успішної поставки, працівники державних організацій зобов'язані розгрузити вантаж на території фракції, куди мали бути доставлені боєприпаси.</li>
+                        <li>У разі успішного нападу, бандити зобов'язані розгрузити вантаж у свої автомобілі.</li>
+                        <li>Для отримання винагороди будь-яка сторона повинна надати повний відеозапис РП ситуації у відповідну тему на форумі: [Посилання]</li>
+                        <li>Адміністрація має право відхилити заявку на отримання винагороди у разі порушення правил поставки.</li>
+                    </ol>
+                    <div class="image-center">
+                        <img src="https://forum.ukraine-gta.com.ua/attachments/photo_2025-01-20_22-45-10-jpg.282479/" alt="Карта маршрутів постачання озброєння">
+                    </div>
+                </div>
+            </details>
+        </section>
+        ---
+
+        <section id="rules-clan-treasury">
+            <h2><a href="#rules-clan-treasury" style="color: inherit; text-decoration: none;">ПРАВИЛА БИТВИ ЗА ОБЩАК</a></h2>
+            <p>Битви проходять у форматі **12 на 12 гравців**.</p>
+            <details open>
+                <summary>ОСНОВНІ ПОЛОЖЕННЯ</summary>
+                <div class="content">
+                    <ol>
+                        <li>Картелі може запросити у Клану податок у розмірі **25%** від його загального казначейства (але не більше вказаних лімітів податку).</li>
+                        <li>Якщо у Клану менше **3 000 000грн.**, то такий Клан вважається занадто малим і Картель не може запросити податок у такого Клану.</li>
+                        <li>Час, коли Картель може запросити податок: після закінчення сезону, у неділю з **12:00 до 18:00**.</li>
+                        <li>Якщо Клан, якому був запрошений податок, добровільно згодився його оплатити, то до загального казначейства Картелю надійде **25%** від загального казначейства клану (але не більше вказаних лімітів податку).</li>
+                        <li>Три Картеля не можуть запросити податок у одного і того ж Клану.</li>
+                        <li>Якщо Клан, якому був запрошений податок, відмовився його виплачувати, то Картель може оголосити війну такому Клану. Після чого через подію "Війна за казначейство" Картель може пограбувати такий Клан на **50%** від загального казначейства у разі перемоги (але не більше вказаних лімітів).</li>
+                        <li>Якщо Клан, якому була оголошена "Війна за казначейство", перемагає в події, то всі гроші казначейства залишаються всередині такого Клану.</li>
+                        <li>Після того, як Картель запросив податок у Клану, у лідера такого клану є **2 години** на прийняття рішення.</li>
+                        <li>Якщо лідер Клану, від якого було запитано податок, не зміг прийняти рішення щодо податку протягом 2 годин після запиту, то добровільний податок у розмірі **25%** від загального фонду Клану буде списаний автоматично (але не перевищуючи вказані ліміти).</li>
+                        <li>Починаючи з моменту, коли Картель запитав податок з Клану, і до моменту, коли добровільний податок буде сплачений або не пройде «Війна за фонд», гроші фонду такого клану будуть **«заморожені»**.</li>
+                        <li>Час, коли Картель може оголосити "Війну за фонд": після закінчення сезону, у неділю з **12:00 до 21:00** за Київським часом.</li>
+                        <li>У випадку, якщо Картель не встиг оголосити "Війну за фонд" Клану, який відмовився платити податок, то всі зобов’язання такого клану будуть скасовані.</li>
+                        <li>Ролі в Картелі, які можуть запитувати податок: **Лідер, модератори**.</li>
+                        <li>Кількість кланів, з яких можна запитати податок за сезон - **3 Клани** (для одного Картелю).</li>
+                        <li>Незгораєма сума спільного фонду клану - **3 000 000грн.**</li>
+                        <li>Максимальна сума для виплати добровільного податку - **10 000 000грн.**</li>
+                        <li>Максимальна сума грабежу клану - **20 000 000грн.**</li>
+                        <li>Якщо Картель перемагає в "Війні за загальний фонд", то він грабує **50%** загального фонду Клану.</li>
+                        <li>Якщо Клан перемагає в "Війні за загальний фонд", то всі гроші загального фонду залишаються всередині цього Клану.</li>
+                        <li>Якщо Картель не встиг у вказаний час оголосити "Війну за загальний фонд" Клану, який відмовився платити податок, то всі зобов’язання клану будуть скасовані.</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+        ---
+
+        <section id="rules-clan-reprimands">
+            <h2><a href="#rules-clan-reprimands" style="color: inherit; text-decoration: none;">СИСТЕМА ДОГАН КЛАНІВ</a></h2>
+            <p>**НО** - Неофіційна Організація</p>
+            <p>Примітка: ГС/ЗГС Неоф може інколи не дотримуватись цих пунктів, якщо це є аргументовано!</p>
+
+            <details open>
+                <summary>ПРАВИЛА ПОКАРАНЬ</summary>
+                <div class="content">
+                    <ol>
+                        <li>**Блокування** (Від Лідера, Модератора, Старшого) - **Догана НО/Попередження НО/Видалення НО**;</li>
+                        <li>Примітка: За блокування старшого покарання не застосовується, якщо порушення не є серйозним.</li>
+                        <li>**Засудження дій адміністрації** (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**Нешанобливе ставлення до адміністрації** (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**Обман адміністрації** (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**Образа адміністрації, розробників UKRAINE GTA** (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**Вживання слова "слав ро**" (Від Лідера, Модератора, Старшого) - **Догана НО/Видалення НО**;</li>
+                        <li>**Прояв нацизму / расизму, прояв ненависті, заснованої на расовій або національній приналежності гравця, якщо сказано комусь в обличчя або в присутності тих, кого ображають. Як виняток країна, з якою йде війна, - російська федерація** - **Догана НО/Попередження НО**;</li>
+                        <li>**FD in GZ** (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**MFD** (Від Лідера, Модератора) - **Попередження НО**;</li>
+                        <li>**DM** (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**DM in GZ** (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**DB GZ** (Від Лідера, Модератора) - **Попередження НО**;</li>
+                        <li>**MDB** (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**SK** (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**Ухід в зелену зону під час RP ситуації** - (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**Стрільба в інтер’єрі** - (Від Лідера, Модератора) - **Попередження НО**;</li>
+                        <li>**Багоюз** - (Від Лідера, Модератора) - **Догана НО/Попередження НО**;</li>
+                        <li>**Перешкода роботі працівників евакуатора, Укрзалізниці, автобуса, трамвая, тощо.** (Від Лідера, Модератора) - **Попередження НО**;</li>
+                        <li>**Неактив лідера НО більше 40 днів.** (Не захід у гру) - **Видалення НО / Списання общаку**;</li>
+                        <li>Незнання цих правил не звільняє вас від відповідальності;</li>
+                        <li>Клан, який недотримується цих правил, буде покараний в залежності від тяжкості порушення;</li>
+                        <li>Клан може отримати як **догану (максимум 3)** так і **попередження (2/2 попереджень = 1 догана)**;</li>
+                        <li>Клан, який отримує **3/3 доган**, видаляється або з його общака списуються кошти без попередження;</li>
+                        <li>Першу та другу догану може видати слідкуючий адміністратор (неоф. орг.), остання (третя) видається виключно ГС/ЗГС Неоф;</li>
+                        <li>Покарання видаються на розсуд слідкуючої адміністрації. Будь-яке покарання можна оскаржити на форумі;</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>ОТРИМАННЯ БАЛІВ</summary>
+                <div class="content">
+                    <ol>
+                        <li>Написати сценарій ГРП та прийняти в ньому участь (від 4 учасників клану) - **30 балів**. (Кількість балів може бути збільшена від кількості учасників (макс. 60))</li>
+                        <li>Прийняти активну участь у ГРП від адміністрації/інших кланів/фракцій - видача балів на рішення ГС/ЗГС.</li>
+                        <li>Зняти промо-ролик про проєкт. Він має бути не менше 5 хвилин, якісно змонтований та знятий - **від 50 до 70 балів**.
+                            <ul>
+                                <li>Якщо ви хочете отримати **80 балів**, ви повинні виконати наступні критерії:
+                                    <ul>
+                                        <li>Відео не менше 15 хвилин</li>
+                                        <li>Повинен бути чіткий зміст</li>
+                                        <li>Гарний Монтаж вашого промо-ролика</li>
+                                    </ul>
+                                </li>
+                                <li>Примітка: у процесі знімання ролику можуть приймати активну участь до двох кланів (ролик повинен бути від 10 хвилин). У такому випадку обидва кланів отримають бали.</li>
+                            </ul>
+                        </li>
+                        <li>Прийняти участь у “Постачанні озброєння” - **40 балів**.</li>
+                        <li>РП викрадення гравця з фракції (не порушуючи правил РП та РП викрадення та під наглядом слідкуючої адміністрації) - **45 балів**.</li>
+                        <li>Зняти відео з купівлею Бази даних СБУ (якісне, з правильними відігровуваннями, не менше 2-х хвилин) - **50 балів**.</li>
+                        <li>Захоплення блок-поста - **35 балів**. (Не порушуючи правил захоплень/серверу, відео-доказ від 15хв.)</li>
+                        <li>Участь у МП (власному або від адміністрації) - **45 балів**. Обов'язково зайняти 1,2,3 місце. [Робити скріншот кінця]</li>
+                        <li>Участь клану у рп-ситуації "облава на конвой" - **55 балів**.</li>
+                        <li>Написання ГРП. (**40 Балів**)</li>
+                        <li>Огляд ролика на клан (від 1 хв). Тобто знявши відео про свій клан, класно його оформивши та викласти на любу платформу, **40 балів**.</li>
+                        <li>Викрадення співробітника держструктур, з відео-доказами та викласти на YouTube, **40 балів**.</li>
+                        <li>Проведення теракту - **50 балів**.</li>
+                        <li>Викрадення Генерала/полковника **45 балів**.</li>
+                        <li>Провести мітингу - **40 балів**.</li>
+                        <li>Захопити територію ЗСУ та забрати у заручники Генерала/полковника - **60 балів**.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>ВИКОРИСТАННЯ БАЛІВ</summary>
+                <div class="content">
+                    <ol>
+                        <li>Зняття догани - **100 балів**.</li>
+                        <li>Зняття попередження - **50 балів**.</li>
+                    </ol>
+                    <p>Примітка: Можливі виключення по чисельності учасників для малочисельних/малоактивних кланів.</p>
+                    <p>Примітка: Кількість балів може бути змінена (збільшена або зменшена) в залежності від якості роботи.</p>
+                    <ol start="3">
+                        <li>Максимальна кількість балів - необмежена.</li>
+                        <li>Докази виконання на зняття догани/попередження мають термін **7 днів**.</li>
+                        <li>У кінці кожного сезону у всіх НО знімаються усі бали, які потрібно буде заробляти знову./ **50%**</li>
+                    </ol>
+                    <p>**КД на зняття догани - 3 днів з моменту отримання.**</p>
+                    <p>**КД на зняття попередження - 1 дні з моменту отримання.**</p>
+                    <p>Примітка: Якщо клан має догану, то може зняти саме догану. Зняти половину догани, щоб вона перейшла в попередження, неможливо.</p>
+                    <p>Примітка: Попередження видаються/знімаються на розсуд старшої адміністрації в залежності від ситуації.</p>
+                    <p>Примітка: 2 попередження перетворюється у 1 догану.</p>
+                </div>
+            </details>
+
+            <h3>Таблиця "Система доган кланів"</h3>
+            <div class="google-sheet-embed">
+                <iframe src="https://docs.google.com/spreadsheets/d/1kxhjiRmdu4lWdyAMorJYsi_vbHkdgcbo1N00pa7riZg/htmlembed?gid=0&range=A1:C100" frameborder="0" allowfullscreen></iframe>
             </div>
-            <p class="copyright">&copy; 2023 Ukraine GTA. Усі права захищені.</p>
-        </div>
-    </footer>
+        </section>
+        ---
 
-    <script src="script.js"></script>
-</body>
-</html>
+        <section id="rules-clan-wars-alliances">
+            <h2><a href="#rules-clan-wars-alliances" style="color: inherit; text-decoration: none;">ПРАВИЛА ВІЙНИ ТА СОЮЗІВ КЛАНІВ</a></h2>
 
-        <!-- Footer Section -->
-        <footer>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-discord"></i></a>
+            <details open>
+                <summary>ПРАВИЛА ВІЙНИ КЛАНІВ</summary>
+                <div class="content">
+                    <ol>
+                        <li>Забороняється вбивати у Зеленій Зоні (DM GZ).</li>
+                        <li>Клан не може мати більше **15-ти війн**.</li>
+                        <li>Дозволено проводити війну кланів біля АЗС, СТО, але якщо ви нанесете шкоду гравцю без організації, то будете покарані за DM GZ.</li>
+                        <li>Забороняється вбивати інших учасників кланів, коли вони працюють на роботі, навіть якщо у вас з ними війна.</li>
+                        <li>Дозволено таранити інше авто (тільки якщо у вас війна з кланом, в якому знаходиться людина).</li>
+                        <li>Забивати війну клану може тільки **лідер та модератор** клану.</li>
+                        <li>Запропонувати перемир'я може тільки **лідер та модератор** клану.</li>
+                        <li>Якщо клан оголошує війну іншому клану, займається слот для війни у обох кланів. Зворотна заявка зі сторони іншого клану не потрібна.</li>
+                        <li>Для перемир'я необхідна домовленість обидвох сторін. Ініціатор перемир'я подає заяву, потім таку саму заяву подає отримувач.</li>
+                        <li>Заборонено забивати війну клану, у якого всі слоти для війни зайняті.</li>
+                        <li>Війни кланів: забороняється відкривати вогонь або вбивати гравця, який знаходиться в машині, оскільки невідомо, чи є він з ворожого клану, чи союзного.</li>
+                        <li>Війновим кланам забороняється перестрілюватись між собою на територіях, які вказані на карті, а саме де проходять битви за територію.</li>
+                        <li>Забороняється будь-який вид провокацій гравців, які знаходяться у ворожому клані та проводять битву за територію.</li>
+                        <li>Війновим кланам забороняється створювати перешкоду роботі гравцям, які знаходяться у ворожому клані.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>ПРАВИЛА СОЮЗІВ КЛАНІВ</summary>
+                <div class="content">
+                    <ol>
+                        <li>Забороняється вбивати гравців союзних кланів.</li>
+                        <li>Клан не може мати більше **7-и союзів**.</li>
+                        <li>Запропонувати союз клану може тільки **лідер та модератор** клану.</li>
+                        <li>Для укладання союзу необхідна домовленість обидвох сторін. Ініціатор союзу подає заяву, потім таку саму заяву подає отримувач.</li>
+                        <li>Наявність союзу між кланами ніяк не впливає на їх війни з іншими кланами.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <h3>Таблиця "Союзи та Війни Кланів"</h3>
+            <div class="google-sheet-embed">
+                <iframe src="https://docs.google.com/spreadsheets/d/1kxhjiRmdu4lWdyAMorJYsi_vbHkdgcbo1N00pa7riZg/htmlembed?gid=0&range=A1:C100" frameborder="0" allowfullscreen></iframe>
             </div>
-            <p class="copyright">© 2023 Ukraine GTA. Усі права захищені.</p>
-        </footer>
+        </section>
+        ---
+
+        <section id="staff-info">
+            <h2><a href="#staff-info" style="color: inherit; text-decoration: none;">СКЛАД АДМІНІСТРАЦІЇ</a></h2>
+            <h3>ГС та ЗГС Неофіційних Організацій</h3>
+            <div class="staff-info">
+                <div class="staff-member">
+                    <h4>Данієль Хомс</h4>
+                    <p>ГС Неоф</p>
+                </div>
+                <div class="staff-member">
+                    <h4>Олександр Пуля</h4>
+                    <p>ЗГС Неоф</p>
+                </div>
+            </div>
+
+            <h3>Слідкуючі Неофіційних Організацій</h3>
+            <div class="staff-info">
+                <div class="staff-member">
+                    <h4>Іванна Тимощук</h4>
+                </div>
+                <div class="staff-member">
+                    <h4>Дарина Бабусь</h4>
+                </div>
+                <div class="staff-member">
+                    <h4>Вадим Хефнер</h4>
+                </div>
+                <div class="staff-member">
+                    <h4>Денис Архангел</h4>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <script>
-        // Toggle hierarchy visibility
-        document.getElementById('toggleHierarchy').addEventListener('click', function() {
-            const rows = document.querySelectorAll('.level-3, .level-4, .level-5');
-            const button = document.getElementById('toggleHierarchy');
-
-            rows.forEach(row => {
-                if (row.style.display === 'none') {
-                    row.style.display = 'table-row';
-                    button.textContent = 'Приховати нижчі рівні';
-                } else {
-                    row.style.display = 'none';
-                    button.textContent = 'Показати нижчі рівні';
-                }
-            });
-        });
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const rows = document.querySelectorAll('.hierarchy-table tbody tr');
-
-            rows.forEach(row => {
-                const name = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
-                const position = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
-
-                if (name.includes(searchTerm) || position.includes(searchTerm)) {
-                    row.style.display = 'table-row';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-
-        // Accordion functionality
-        const accordions = document.getElementsByClassName('accordion');
-
-        for (let i = 0; i < accordions.length; i++) {
-            accordions[i].addEventListener('click', function() {
-                this.classList.toggle('active');
-                const panel = this.nextElementSibling;
-
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + 'px';
-                }
-            });
-        }
-    </script>
+    <footer>
+        <p>&copy; 2025 Помічник для Слідкуючих Неофіційних Організацій. Всі права захищені.</p>
+    </footer>
 </body>
 </html>
