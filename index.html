@@ -1,1822 +1,936 @@
 <!DOCTYPE html>
-
 <html lang="uk">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Адміністрація | Ukraine GTA</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-
-        :root {
-
-            --primary: #8B4513;
-
-            --primary-dark: #5D2D0C;
-
-            --primary-light: #A0522D;
-
-            --secondary: #CD853F;
-
-            --gold: #FFD700;
-
-            --gold-dark: #D4AF37;
-
-            --dark: #0F0F0F;
-
-            --darker: #080808;
-
-            --light: #FFFFFF;
-
-            --gray: #1A1A1A;
-
-            --gray-light: #2A2A2A;
-
-            --accent: #FF6B00;
-
-            --glass: rgba(30, 30, 30, 0.7);
-
-            --glass-light: rgba(50, 50, 50, 0.5);
-
-        }
-
-
-
-        * {
-
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-
-        }
-
-
-
-        body {
-
-            font-family: 'Montserrat', sans-serif;
-
-            background-color: var(--dark);
-
-            color: var(--light);
-
-            line-height: 1.6;
-
-            background-image: 
-
-                radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
-
-                radial-gradient(circle at 75% 75%, rgba(205, 133, 63, 0.15) 0%, transparent 50%);
-
-            background-attachment: fixed;
-
-        }
-
-
-
-        .container {
-
-            width: 90%;
-
-            max-width: 1400px;
-
-            margin: 0 auto;
-
-            padding: 20px 0;
-
-        }
-
-
-
-        /* Header Styles */
-
-        header {
-
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-
-            padding: 50px 0;
-
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-
-            position: relative;
-
-            overflow: hidden;
-
-            margin-bottom: 60px;
-
-            border-bottom: 2px solid var(--gold);
-
-        }
-
-
-
-        header::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            right: 0;
-
-            bottom: 0;
-
-            background: 
-
-                linear-gradient(45deg, transparent 65%, rgba(212, 175, 55, 0.1) 65%),
-
-                linear-gradient(-45deg, transparent 65%, rgba(212, 175, 55, 0.1) 65%);
-
-            background-size: 30px 30px;
-
-            opacity: 0.3;
-
-        }
-
-
-
-        .header-content {
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            position: relative;
-
-            z-index: 2;
-
-            text-align: center;
-
-        }
-
-
-
-        .logo {
-
-            margin-bottom: 25px;
-
-            transition: transform 0.5s;
-
-        }
-
-
-
-        .logo:hover {
-
-            transform: scale(1.05) rotate(-5deg);
-
-        }
-
-
-
-        .logo img {
-
-            height: 120px;
-
-            width: auto;
-
-            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
-
-        }
-
-
-
-        h1 {
-
-            font-family: 'Playfair Display', serif;
-
-            font-size: 3.5rem;
-
-            font-weight: 800;
-
-            color: var(--gold);
-
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
-
-            margin-bottom: 15px;
-
-            background: linear-gradient(to right, var(--gold), #F9F295);
-
-            -webkit-background-clip: text;
-
-            -webkit-text-fill-color: transparent;
-
-            position: relative;
-
-            display: inline-block;
-
-        }
-
-
-
-        h1::after {
-
-            content: "";
-
-            position: absolute;
-
-            bottom: -10px;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            width: 150px;
-
-            height: 3px;
-
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-
-        }
-
-
-
-        .subtitle {
-
-            font-size: 1.3rem;
-
-            opacity: 0.9;
-
-            max-width: 800px;
-
-            margin: 0 auto;
-
-            line-height: 1.8;
-
-            position: relative;
-
-            padding: 0 20px;
-
-        }
-
-
-
-        /* Gallery Styles */
-
-        .gallery-section {
-
-            margin: 70px 0;
-
-            position: relative;
-
-        }
-
-
-
-        .gallery-section::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: -30px;
-
-            left: 0;
-
-            right: 0;
-
-            height: 1px;
-
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-
-        }
-
-
-
-        .gallery-title {
-
-            font-family: 'Playfair Display', serif;
-
-            font-size: 2.5rem;
-
-            font-weight: 700;
-
-            color: var(--gold);
-
-            margin-bottom: 30px;
-
-            text-align: center;
-
-            position: relative;
-
-            display: inline-block;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-        }
-
-
-
-        .gallery-title::after {
-
-            content: "";
-
-            display: block;
-
-            width: 120px;
-
-            height: 4px;
-
-            background: linear-gradient(to right, var(--primary), var(--gold));
-
-            margin: 15px auto;
-
-            border-radius: 2px;
-
-        }
-
-
-
-        .gallery-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
-            gap: 25px;
-
-            margin-top: 40px;
-
-        }
-
-
-
-        .gallery-item {
-
-            position: relative;
-
-            border-radius: 12px;
-
-            overflow: hidden;
-
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-            aspect-ratio: 16/9;
-
-            border: 1px solid rgba(212, 175, 55, 0.2);
-
-        }
-
-
-
-        .gallery-item::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            right: 0;
-
-            bottom: 0;
-
-            background: linear-gradient(45deg, rgba(139, 69, 19, 0.3), transparent);
-
-            z-index: 1;
-
-        }
-
-
-
-        .gallery-item:hover {
-
-            transform: translateY(-10px) scale(1.02);
-
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
-
-            border-color: rgba(212, 175, 55, 0.5);
-
-        }
-
-
-
-        .gallery-item img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-        }
-
-
-
-        .gallery-item:hover img {
-
-            transform: scale(1.1);
-
-        }
-
-
-
-        .gallery-caption {
-
-            position: absolute;
-
-            bottom: 0;
-
-            left: 0;
-
-            right: 0;
-
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-
-            padding: 25px;
-
-            color: white;
-
-            opacity: 0;
-
-            transition: opacity 0.4s;
-
-            z-index: 2;
-
-            font-size: 1.1rem;
-
-            font-weight: 600;
-
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-
-        }
-
-
-
-        .gallery-item:hover .gallery-caption {
-
-            opacity: 1;
-
-        }
-
-
-
-        /* Hierarchy Table Styles */
-
-        .hierarchy-section {
-
-            margin: 80px 0;
-
-            position: relative;
-
-        }
-
-
-
-        .hierarchy-section::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: -30px;
-
-            left: 0;
-
-            right: 0;
-
-            height: 1px;
-
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-
-        }
-
-
-
-        .section-title {
-
-            font-family: 'Playfair Display', serif;
-
-            font-size: 2.5rem;
-
-            font-weight: 700;
-
-            color: var(--gold);
-
-            margin-bottom: 40px;
-
-            text-align: center;
-
-            position: relative;
-
-            display: inline-block;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-        }
-
-
-
-        .section-title::after {
-
-            content: "";
-
-            display: block;
-
-            width: 120px;
-
-            height: 4px;
-
-            background: linear-gradient(to right, var(--primary), var(--gold));
-
-            margin: 20px auto 30px;
-
-            border-radius: 2px;
-
-        }
-
-
-
-        .search-container {
-
-            display: flex;
-
-            justify-content: center;
-
-            margin-bottom: 40px;
-
-            gap: 20px;
-
-            flex-wrap: wrap;
-
-            align-items: center;
-
-        }
-
-
-
-        #searchInput {
-
-            padding: 15px 25px;
-
-            width: 100%;
-
-            max-width: 600px;
-
-            border-radius: 50px;
-
-            border: 2px solid var(--secondary);
-
-            background-color: var(--gray);
-
-            color: var(--light);
-
-            font-size: 16px;
-
-            outline: none;
-
-            transition: all 0.4s;
-
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
-        }
-
-
-
-        #searchInput:focus {
-
-            border-color: var(--gold);
-
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
-
-            background-color: var(--gray-light);
-
-        }
-
-
-
-        .toggle-btn {
-
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-
-            color: white;
-
-            border: none;
-
-            padding: 15px 30px;
-
-            border-radius: 50px;
-
-            cursor: pointer;
-
-            font-size: 16px;
-
-            font-weight: 600;
-
-            transition: all 0.4s;
-
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-
-            border: 1px solid rgba(212, 175, 55, 0.3);
-
-            position: relative;
-
-            overflow: hidden;
-
-        }
-
-
-
-        .toggle-btn::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: -100%;
-
-            width: 100%;
-
-            height: 100%;
-
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-
-            transition: 0.5s;
-
-        }
-
-
-
-        .toggle-btn:hover {
-
-            transform: translateY(-3px);
-
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-
-        }
-
-
-
-        .toggle-btn:hover::before {
-
-            left: 100%;
-
-        }
-
-
-
-        .hierarchy-table {
-
-            width: 100%;
-
-            border-collapse: separate;
-
-            border-spacing: 0;
-
-            margin: 40px 0;
-
-            background-color: var(--glass);
-
-            backdrop-filter: blur(10px);
-
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-
-            border-radius: 15px;
-
-            overflow: hidden;
-
-            border: 1px solid rgba(212, 175, 55, 0.2);
-
-        }
-
-
-
-        .hierarchy-table th, 
-
-        .hierarchy-table td {
-
-            padding: 20px 30px;
-
-            text-align: left;
-
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-
-            position: relative;
-
-        }
-
-
-
-        .hierarchy-table th {
-
-            background: linear-gradient(to right, var(--primary-dark), var(--primary));
-
-            color: white;
-
-            font-weight: 600;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-
-            font-size: 0.9rem;
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 10;
-
-        }
-
-
-
-        .hierarchy-table th::after {
-
-            content: "";
-
-            position: absolute;
-
-            bottom: 0;
-
-            left: 0;
-
-            right: 0;
-
-            height: 3px;
-
-            background: linear-gradient(to right, var(--gold), var(--accent));
-
-        }
-
-
-
-        .hierarchy-table tr:last-child td {
-
-            border-bottom: none;
-
-        }
-
-
-
-        .hierarchy-table tr:hover {
-
-            background-color: rgba(212, 175, 55, 0.1);
-
-        }
-
-
-
-        .hierarchy-table tr:hover td::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            width: 4px;
-
-            height: 100%;
-
-            background: linear-gradient(to bottom, var(--gold), var(--accent));
-
-        }
-
-
-
-        /* Hierarchy level colors */
-
-        .level-1 { 
-
-            background-color: rgba(139, 69, 19, 0.4); 
-
-            border-left: 4px solid var(--gold);
-
-        }
-
-        .level-2 { 
-
-            background-color: rgba(139, 69, 19, 0.3); 
-
-            border-left: 4px solid var(--secondary);
-
-        }
-
-        .level-3 { 
-
-            background-color: rgba(139, 69, 19, 0.2); 
-
-            border-left: 4px solid var(--primary-light);
-
-        }
-
-        .level-4 { 
-
-            background-color: rgba(139, 69, 19, 0.15); 
-
-            border-left: 4px solid var(--gray-light);
-
-        }
-
-        .level-5 { 
-
-            background-color: rgba(139, 69, 19, 0.1); 
-
-            border-left: 4px solid var(--glass-light);
-
-        }
-
-
-
-        .rank-badge {
-
-            display: inline-block;
-
-            background: linear-gradient(to right, var(--gold), #F9F295);
-
-            color: var(--dark);
-
-            padding: 4px 12px;
-
-            border-radius: 20px;
-
-            font-size: 0.8rem;
-
-            font-weight: bold;
-
-            margin-left: 10px;
-
-            vertical-align: middle;
-
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
-            border: 1px solid rgba(255, 255, 255, 0.3);
-
-        }
-
-
-
-        /* Promotion System Styles */
-
-        .promotion-system {
-
-            margin: 80px 0;
-
-            background: var(--glass);
-
-            backdrop-filter: blur(10px);
-
-            padding: 50px;
-
-            border-radius: 15px;
-
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-
-            border: 1px solid rgba(212, 175, 55, 0.2);
-
-            position: relative;
-
-            overflow: hidden;
-
-        }
-
-
-
-        .promotion-system::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            right: 0;
-
-            height: 5px;
-
-            background: linear-gradient(to right, var(--primary), var(--gold), var(--accent));
-
-        }
-
-
-
-        .accordion {
-
-            background: linear-gradient(to right, var(--primary-dark), var(--primary));
-
-            color: white;
-
-            cursor: pointer;
-
-            padding: 25px;
-
-            width: 100%;
-
-            border: none;
-
-            text-align: left;
-
-            outline: none;
-
-            font-size: 1.1rem;
-
-            font-weight: 600;
-
-            transition: all 0.4s;
-
-            margin-bottom: 15px;
-
-            border-radius: 8px;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
-            position: relative;
-
-            overflow: hidden;
-
-            border: 1px solid rgba(212, 175, 55, 0.3);
-
-        }
-
-
-
-        .accordion::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            width: 5px;
-
-            height: 100%;
-
-            background: linear-gradient(to bottom, var(--gold), var(--accent));
-
-        }
-
-
-
-        .accordion:hover {
-
-            background: linear-gradient(to right, var(--primary), var(--primary-light));
-
-            transform: translateY(-3px);
-
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-
-        }
-
-
-
-        .accordion.active {
-
-            background: linear-gradient(to right, var(--primary), var(--primary-light));
-
-            border-bottom-left-radius: 0;
-
-            border-bottom-right-radius: 0;
-
-        }
-
-
-
-        .accordion::after {
-
-            content: '\f078';
-
-            font-family: 'Font Awesome 6 Free';
-
-            font-weight: 900;
-
-            font-size: 16px;
-
-            transition: all 0.4s;
-
-            color: var(--gold);
-
-        }
-
-
-
-        .accordion.active::after {
-
-            transform: rotate(180deg);
-
-            color: white;
-
-        }
-
-
-
-        .panel {
-
-            padding: 0 25px;
-
-            background-color: var(--gray-light);
-
-            max-height: 0;
-
-            overflow: hidden;
-
-            transition: max-height 0.4s ease-out;
-
-            border-radius: 0 0 8px 8px;
-
-            margin-bottom: 20px;
-
-            border-left: 5px solid var(--gold);
-
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-
-        }
-
-
-
-        .panel ul {
-
-            padding: 25px;
-
-            list-style-type: none;
-
-        }
-
-
-
-        .panel li {
-
-            padding: 12px 0;
-
-            position: relative;
-
-            padding-left: 35px;
-
-            font-size: 1rem;
-
-            line-height: 1.7;
-
-        }
-
-
-
-        .panel li::before {
-
-            content: '\f054';
-
-            font-family: 'Font Awesome 6 Free';
-
-            font-weight: 900;
-
-            color: var(--gold);
-
-            position: absolute;
-
-            left: 0;
-
-            top: 14px;
-
-            font-size: 14px;
-
-            transition: all 0.3s;
-
-        }
-
-
-
-        .panel li:hover::before {
-
-            transform: translateX(5px);
-
-            color: var(--accent);
-
-        }
-
-
-
-        .note {
-
-            background: rgba(212, 175, 55, 0.1);
-
-            border-left: 5px solid var(--gold);
-
-            padding: 20px;
-
-            margin: 30px 0;
-
-            border-radius: 0 8px 8px 0;
-
-            position: relative;
-
-            backdrop-filter: blur(5px);
-
-            border: 1px solid rgba(212, 175, 55, 0.2);
-
-        }
-
-
-
-        .note::before {
-
-            content: "\f05a";
-
-            font-family: 'Font Awesome 6 Free';
-
-            font-weight: 900;
-
-            position: absolute;
-
-            left: -15px;
-
-            top: -15px;
-
-            background: var(--gold);
-
-            width: 30px;
-
-            height: 30px;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color: var(--dark);
-
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-
-        }
-
-
-
-        .note p {
-
-            margin-bottom: 10px;
-
-        }
-
-
-
-        .note strong {
-
-            color: var(--gold);
-
-        }
-
-
-
-        /* Disciplinary Actions Styles */
-
-        .disciplinary-actions {
-
-            margin: 80px 0;
-
-            position: relative;
-
-        }
-
-
-
-        .disciplinary-actions::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: -30px;
-
-            left: 0;
-
-            right: 0;
-
-            height: 1px;
-
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-
-        }
-
-
-
-        .disciplinary-table {
-
-            width: 100%;
-
-            border-collapse: separate;
-
-            border-spacing: 0;
-
-            margin: 40px 0;
-
-            background-color: var(--glass);
-
-            backdrop-filter: blur(10px);
-
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-
-            border-radius: 15px;
-
-            overflow: hidden;
-
-            border: 1px solid rgba(212, 175, 55, 0.2);
-
-        }
-
-
-
-        .disciplinary-table th, 
-
-        .disciplinary-table td {
-
-            padding: 18px 25px;
-
-            text-align: left;
-
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-
-            position: relative;
-
-        }
-
-
-
-        .disciplinary-table th {
-
-            background: linear-gradient(to right, var(--primary-dark), var(--primary));
-
-            color: white;
-
-            font-weight: 600;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-
-            font-size: 0.9rem;
-
-        }
-
-
-
-        .disciplinary-table th::after {
-
-            content: "";
-
-            position: absolute;
-
-            bottom: 0;
-
-            left: 0;
-
-            right: 0;
-
-            height: 3px;
-
-            background: linear-gradient(to right, var(--gold), var(--accent));
-
-        }
-
-
-
-        .disciplinary-table tr:last-child td {
-
-            border-bottom: none;
-
-        }
-
-
-
-        .disciplinary-table tr:hover {
-
-            background-color: rgba(212, 175, 55, 0.1);
-
-        }
-
-
-
-        .disciplinary-table tr:hover td::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            width: 4px;
-
-            height: 100%;
-
-            background: linear-gradient(to bottom, var(--gold), var(--accent));
-
-        }
-
-
-
-        .fine-amount {
-
-            color: var(--gold);
-
-            font-weight: 600;
-
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-
-        }
-
-
-
-        /* Footer Styles */
-
-        footer {
-
-            background: linear-gradient(to right, var(--darker), var(--dark));
-
-            padding: 50px 0;
-
-            text-align: center;
-
-            margin-top: 80px;
-
-            position: relative;
-
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-
-        }
-
-
-
-        footer::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            right: 0;
-
-            height: 5px;
-
-            background: linear-gradient(to right, var(--primary), var(--gold), var(--accent));
-
-        }
-
-
-
-        .social-links {
-
-            margin: 30px 0;
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 25px;
-
-        }
-
-
-
-        .social-links a {
-
-            color: var(--light);
-
-            font-size: 28px;
-
-            transition: all 0.4s;
-
-            width: 60px;
-
-            height: 60px;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background: rgba(255, 255, 255, 0.05);
-
-            backdrop-filter: blur(5px);
-
-            border: 1px solid rgba(212, 175, 55, 0.2);
-
-        }
-
-
-
-        .social-links a:hover {
-
-            color: var(--gold);
-
-            transform: translateY(-5px) scale(1.1);
-
-            background: rgba(212, 175, 55, 0.1);
-
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
-
-        }
-
-
-
-        .copyright {
-
-            opacity: 0.8;
-
-            font-size: 15px;
-
-            letter-spacing: 0.5px;
-
-        }
-
-
-
-        /* Scrollbar Styles */
-
-        ::-webkit-scrollbar {
-
-            width: 12px;
-
-        }
-
-
-
-        ::-webkit-scrollbar-track {
-
-            background: var(--darker);
-
-        }
-
-
-
-        ::-webkit-scrollbar-thumb {
-
-            background: linear-gradient(var(--primary), var(--gold));
-
-            border-radius: 6px;
-
-            border: 2px solid var(--darker);
-
-        }
-
-
-
-        /* Animation Effects */
-
-        @keyframes fadeIn {
-
-            from { opacity: 0; transform: translateY(20px); }
-
-            to { opacity: 1; transform: translateY(0); }
-
-        }
-
-
-
-        .gallery-section, 
-
-        .hierarchy-section, 
-
-        .promotion-system, 
-
-        .disciplinary-actions {
-
-            /* animation: fadeIn 0.8s ease-out forwards; */ /* Keep this commented if using JS for scroll animation */
-
-        }
-
-
-
-        /* Responsive Styles */
-
-        @media (max-width: 1200px) {
-
-            .container {
-
-                width: 95%;
-
-            }
-
-        }
-
-
-
-        @media (max-width: 992px) {
-
-            h1 {
-
-                font-size: 3rem;
-
-            }
-
-            
-
-            .gallery-grid {
-
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-            }
-
-            
-
-            .promotion-system {
-
-                padding: 40px;
-
-            }
-
-        }
-
-
-
-        @media (max-width: 768px) {
-
-            h1 {
-
-                font-size: 2.5rem;
-
-            }
-
-            
-
-            .subtitle {
-
-                font-size: 1.1rem;
-
-            }
-
-            
-
-            .gallery-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 20px;
-
-            }
-
-            
-
-            .hierarchy-table th, 
-
-            .hierarchy-table td {
-
-                padding: 15px 20px;
-
-            }
-
-            
-
-            .promotion-system {
-
-                padding: 30px;
-
-            }
-
-            
-
-            .accordion {
-
-                padding: 20px;
-
-                font-size: 1rem;
-
-            }
-
-        }
-
-
-
-        @media (max-width: 576px) {
-
-            h1 {
-
-                font-size: 2rem;
-
-            }
-
-            
-
-            .section-title, 
-
-            .gallery-title {
-
-                font-size: 1.8rem;
-
-            }
-
-            
-
-            .search-container {
-
-                flex-direction: column;
-
-                align-items: stretch;
-
-            }
-
-            
-
-            #searchInput {
-
-                max-width: 100%;
-
-            }
-
-            
-
-            .toggle-btn {
-
-                width: 100%;
-
-            }
-
-            
-
-            .promotion-system {
-
-                padding: 20px;
-
-            }
-
-            
-
-            .panel li {
-
-                padding-left: 25px;
-
-                font-size: 0.95rem;
-
-            }
-
-            
-
-            .panel li::before {
-
-                top: 13px;
-
-            }
-
-        }
-
-    </style>
-
-</head>
-
-<body>
-
-    
-    <!-- Ваш HTML-код без змін -->
-    <!-- ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Родина Ukraine GTA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <script>
-        // Додаткові скрипти для анімацій
-        document.addEventListener('DOMContentLoaded', function() {
-            // Анімація при скролі
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.gallery-item, .hierarchy-table tr, .accordion, .disciplinary-table tr');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.2;
-                    
-                    if (elementPosition < screenPosition) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
-            };
-            
-            // Початкові стилі для анімації
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const tableRows = document.querySelectorAll('.hierarchy-table tr, .disciplinary-table tr');
-            const accordions = document.querySelectorAll('.accordion');
-            
-            galleryItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(30px)';
-                item.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-            });
-            
-            tableRows.forEach(row => {
-                row.style.opacity = '0';
-                row.style.transform = 'translateY(20px)';
-                row.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-                row.style.transitionDelay = `${Math.random() * 0.3}s`;
-            });
-            
-            accordions.forEach(acc => {
-                acc.style.opacity = '0';
-                acc.style.transform = 'translateY(20px)';
-                acc.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-            });
-            
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Викликати один раз при завантаженні
-            
-            // Інтерактивні елементи
-            const tableCells = document.querySelectorAll('.hierarchy-table td, .disciplinary-table td');
-            tableCells.forEach(cell => {
-                cell.addEventListener('mouseenter', function() {
-                    this.style.transition = 'all 0.3s ease';
-                    this.style.background = 'rgba(212, 175, 55, 0.05)';
-                });
-                
-                cell.addEventListener('mouseleave', function() {
-                    this.style.background = '';
-                });
-            });
-        });
+    <style>
+        /* --- Змінні: Ваші існуючі + нові для анімацій та покращень --- */
+        :root {
+            --primary: #8B4513; /* SaddleBrown */
+            --primary-dark: #5D2D0C; /* Darker SaddleBrown */
+            --primary-light: #A0522D; /* Lighter SaddleBrown */
+            --secondary: #CD853F; /* Peru */
+            --gold: #FFD700; /* Gold */
+            --gold-dark: #D4AF37; /* Darker Gold */
+            --dark: #0F0F0F; /* Very Dark Gray */
+            --darker: #080808; /* Even Darker Gray */
+            --light: #FFFFFF; /* White */
+            --gray: #1A1A1A; /* Dark Gray */
+            --gray-light: #2A2A2A; /* Lighter Dark Gray */
+            --accent: #FF6B00; /* Bright Orange (for pop) */
+            --glass: rgba(30, 30, 30, 0.7); /* Translucent Dark */
+            --glass-light: rgba(50, 50, 50, 0.5); /* Lighter Translucent Dark */
 
-        // Ваш існуючий JavaScript код без змін
-        // Toggle hierarchy visibility
-        document.getElementById('toggleHierarchy').addEventListener('click', function() {
-            const rows = document.querySelectorAll('.level-3, .level-4, .level-5');
-            const button = document.getElementById('toggleHierarchy');
-
-            rows.forEach(row => {
-                if (row.style.display === 'none') {
-                    row.style.display = 'table-row';
-                    button.textContent = 'Приховати нижчі рівні';
-                } else {
-                    row.style.display = 'none';
-                    button.textContent = 'Показати нижчі рівні';
-                }
-            });
-        });
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const rows = document.querySelectorAll('.hierarchy-table tbody tr');
-
-            rows.forEach(row => {
-                const name = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
-                const position = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
-
-                if (name.includes(searchTerm) || position.includes(searchTerm)) {
-                    row.style.display = 'table-row';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-
-        // Accordion functionality
-        const accordions = document.getElementsByClassName('accordion');
-
-        for (let i = 0; i < accordions.length; i++) {
-            accordions[i].addEventListener('click', function() {
-                this.classList.toggle('active');
-                const panel = this.nextElementSibling;
-
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + 'px';
-                }
-            });
+            /* Нові змінні для тіней та переходів, що посилюють "преміум" */
+            --shadow-soft: 0 5px 15px rgba(0, 0, 0, 0.3); /* М'яка, загальна тінь */
+            --shadow-elevated: 0 15px 30px rgba(0, 0, 0, 0.6), 0 5px 10px rgba(0, 0, 0, 0.4); /* Глибока тінь для підняття */
+            --transition-smooth: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Більш плавна анімація */
+            --transition-fast: 0.3s ease-out; /* Швидша анімація для ховерів */
         }
-    </script>
-</body>
-</html>
+
+        /* --- Базові стилі та шрифти --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Додаємо fallback шрифти та оптимізуємо згладжування */
+            font-family: 'Montserrat', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.8; /* Трохи більший інтервал для кращої читабельності */
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(205, 133, 63, 0.15) 0%, transparent 50%);
+            background-attachment: fixed;
+            /* Ефект легкого світіння або розмиття на темному фоні */
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.1); 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* --- Header Styles: Більше глибини та інтерактивності --- */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding: 60px 0; /* Збільшений padding для простору */
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8); /* Глибша тінь */
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 70px; /* Більший відступ знизу */
+            border-bottom: 3px solid var(--gold); /* Товстіша золота лінія */
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); /* Плавний перехід */
+        }
+
+        header:hover {
+            transform: translateY(-5px); /* Легке підняття при наведенні на весь хедер */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9); /* Ще глибша тінь */
+        }
+
+        header::before {
+            /* Фоновий візерунок з елегантнішим нахилом та анімацією */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(60deg, transparent 65%, rgba(212, 175, 55, 0.15) 65%),
+                linear-gradient(-60deg, transparent 65%, rgba(212, 175, 55, 0.15) 65%);
+            background-size: 40px 40px; /* Трохи більші елементи візерунка */
+            opacity: 0.4; /* Більша помітність */
+            animation: headerPatternMove 60s linear infinite; /* Повільна анімація візерунка */
+        }
+
+        @keyframes headerPatternMove {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 30px; /* Більший відступ */
+            transition: transform var(--transition-smooth);
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(-8deg); /* Більш виражений ефект */
+        }
+
+        .logo img {
+            height: 140px; /* Збільшений розмір лого */
+            width: auto;
+            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.9)) saturate(1.2); /* Посилений ефект тіні та насиченості */
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem; /* Ще більший розмір заголовка */
+            font-weight: 900; /* Ще жирніший */
+            color: var(--gold);
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Більш виражена тінь */
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--gold), #FFEB80); /* Яскравіший золотий градієнт */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 2px; /* Додаємо невеликий міжлітерний інтервал */
+            animation: textGlow 2s infinite alternate; /* Ефект світіння */
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 0 0 5px var(--gold); }
+            to { text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9), 0 0 15px var(--gold-dark); }
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -15px; /* Нижче */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px; /* Довша лінія */
+            height: 4px; /* Товстіша лінія */
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        .subtitle {
+            font-size: 1.4rem; /* Збільшений розмір */
+            opacity: 0.95; /* Більш помітний */
+            max-width: 900px; /* Ширший текст */
+            margin: 0 auto;
+            line-height: 1.9; /* Більший інтервал */
+            position: relative;
+            padding: 0 25px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Легка тінь для читабельності */
+        }
+
+        /* --- Gallery Styles: Більше динаміки та візуальних ефектів --- */
+        .gallery-section {
+            margin: 80px 0; /* Збільшений відступ */
+            position: relative;
+        }
+
+        .gallery-section::before {
+            content: "";
+            position: absolute;
+            top: -40px; /* Відступ зверху */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px; /* Тонша лінія */
+            background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+        }
+
+        .gallery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem; /* Збільшений розмір */
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 35px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .gallery-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px; /* Нижче */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px; /* Довша лінія */
+            height: 5px; /* Товстіша */
+            background: linear-gradient(to right, var(--primary-dark), var(--gold), var(--accent)); /* Градієнтна лінія */
+            margin: 20px auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Більші мінімальні розміри */
+            gap: 30px; /* Більший простір між елементами */
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px; /* Більш заокруглені кути */
+            overflow: hidden;
+            box-shadow: var(--shadow-elevated); /* Використовуємо нову змінну для глибокої тіні */
+            transition: all var(--transition-smooth); /* Плавніший перехід */
+            aspect-ratio: 16/9;
+            border: 2px solid rgba(212, 175, 55, 0.3); /* Товстіша рамка */
+            transform-origin: center center; /* Для більш коректної анімації scale */
+        }
+
+        .gallery-item::before {
+            /* Покращений градієнтний оверлей */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.5), rgba(205, 133, 63, 0.2), transparent 70%);
+            z-index: 1;
+            opacity: 1; /* Завжди видимий, але зменшується при ховері */
+            transition: opacity var(--transition-fast);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 0; /* Зникає при наведенні, відкриваючи зображення */
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-15px) scale(1.03); /* Більш виражений ефект підняття та масштабування */
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8); /* Ще глибша тінь */
+            border-color: rgba(212, 175, 55, 0.7); /* Яскравіша рамка при наведенні */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1); /* Довший та плавніший zoom */
+            filter: brightness(0.9) grayscale(0.1); /* Легке затемнення та знебарвлення */
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15); /* Сильніший zoom */
+            filter: brightness(1) grayscale(0); /* Повернення до нормального вигляду */
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent 70%); /* Більш насичений градієнт */
+            padding: 30px; /* Збільшений padding */
+            color: white;
+            opacity: 0;
+            /* Анімація з затримкою, щоб з'являвся після зникнення оверлею */
+            transition: opacity 0.5s var(--transition-smooth) 0.2s; 
+            z-index: 2;
+            font-size: 1.2rem; /* Більший шрифт */
+            font-weight: 700; /* Жирніший шрифт */
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+            transform: translateY(100%); /* Починає з'являтися знизу */
+            transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0); /* Виїжджає на місце */
+        }
+
+        /* --- Hierarchy Table Styles: Більше розкоші та інтерактивності --- */
+        .hierarchy-section {
+            margin: 90px 0; /* Більший відступ */
+            position: relative;
+        }
+
+        .hierarchy-section::before {
+            content: "";
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem; /* Збільшений розмір */
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 45px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-dark), var(--gold), var(--accent));
+            margin: 20px auto 35px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px; /* Більший відступ */
+            gap: 30px; /* Більший простір */
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        #searchInput {
+            padding: 18px 30px; /* Збільшений padding */
+            width: 100%;
+            max-width: 650px; /* Ширше поле */
+            border-radius: 50px;
+            border: 2px solid var(--secondary);
+            background-color: var(--gray);
+            color: var(--light);
+            font-size: 1.1rem; /* Більший шрифт */
+            outline: none;
+            transition: all var(--transition-smooth); /* Плавніший перехід */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Глибша тінь */
+        }
+
+        #searchInput::placeholder { /* Стиль для placeholder */
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        #searchInput:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), inset 0 0 5px rgba(212, 175, 55, 0.3); /* Сяйво + легкий inset */
+            background-color: var(--gray-light);
+        }
+
+        .toggle-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 18px 35px; /* Збільшений padding */
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem; /* Більший шрифт */
+            font-weight: 700; /* Жирніший */
+            transition: all var(--transition-smooth);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Глибша тінь */
+            border: 2px solid rgba(212, 175, 55, 0.4); /* Товстіша рамка */
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .toggle-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%; /* Починається далі зліва */
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* Яскравіший блиск */
+            transform: skewX(-25deg); /* Сильніший нахил */
+            transition: 0.6s ease-out; /* Плавніший перехід блиску */
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-5px); /* Більш виражене підняття */
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Ще глибша тінь */
+            border-color: var(--gold);
+        }
+
+        .toggle-btn:hover::before {
+            left: 120%; /* Проходить далі вправо */
+        }
+
+        .hierarchy-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 50px 0; /* Більший відступ */
+            background-color: var(--glass);
+            backdrop-filter: blur(12px); /* Сильніший blur */
+            box-shadow: var(--shadow-elevated); /* Глибока тінь */
+            border-radius: 18px; /* Більш заокруглені кути */
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.3); /* Товстіша рамка */
+        }
+
+        .hierarchy-table th, 
+        .hierarchy-table td {
+            padding: 22px 35px; /* Збільшений padding */
+            text-align: left;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15); /* Трохи помітніша лінія */
+            position: relative;
+            transition: background-color var(--transition-fast); /* Швидкий перехід для рядка */
+        }
+
+        .hierarchy-table th {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: white;
+            font-weight: 700; /* Жирніший шрифт */
+            text-transform: uppercase;
+            letter-spacing: 1.5px; /* Більший інтервал */
+            font-size: 1rem; /* Збільшений шрифт */
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hierarchy-table th::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px; /* Товстіша лінія */
+            background: linear-gradient(to right, var(--gold), var(--accent));
+        }
+
+        .hierarchy-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hierarchy-table tr:hover {
+            background-color: rgba(212, 175, 55, 0.15); /* Трохи помітніший ховер */
+        }
+
+        .hierarchy-table tr:hover td::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px; /* Товстіша вертикальна лінія */
+            background: linear-gradient(to bottom, var(--gold), var(--accent));
+        }
+
+        /* Hierarchy level colors (зберігаємо вашу ідею, але можемо додати легке світіння) */
+        .level-1 { 
+            background-color: rgba(139, 69, 19, 0.4); 
+            border-left: 5px solid var(--gold); /* Товстіша лінія */
+            box-shadow: inset 0 0 8px rgba(255, 215, 0, 0.2); /* Легке внутрішнє світіння */
+        }
+        .level-2 { 
+            background-color: rgba(139, 69, 19, 0.3); 
+            border-left: 5px solid var(--secondary);
+            box-shadow: inset 0 0 6px rgba(205, 133, 63, 0.2);
+        }
+        .level-3 { 
+            background-color: rgba(139, 69, 19, 0.25); /* Трохи темніше */
+            border-left: 5px solid var(--primary-light);
+            box-shadow: inset 0 0 5px rgba(160, 82, 45, 0.2);
+        }
+        .level-4 { 
+            background-color: rgba(139, 69, 19, 0.2); 
+            border-left: 5px solid var(--gray-light);
+            box-shadow: inset 0 0 4px rgba(42, 42, 42, 0.2);
+        }
+        .level-5 { 
+            background-color: rgba(139, 69, 19, 0.15); 
+            border-left: 5px solid var(--glass-light);
+            box-shadow: inset 0 0 3px rgba(50, 50, 50, 0.2);
+        }
+
+        .rank-badge {
+            display: inline-block;
+            background: linear-gradient(to right, var(--gold), #FFEB80); /* Яскравіший золотий */
+            color: var(--darker); /* Темніший текст для кращого контрасту */
+            padding: 5px 14px; /* Збільшений padding */
+            border-radius: 25px; /* Більш кругле */
+            font-size: 0.9rem; /* Збільшений шрифт */
+            font-weight: bold;
+            margin-left: 12px;
+            vertical-align: middle;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* Глибша тінь */
+            border: 1px solid rgba(255, 255, 255, 0.4); /* Помітніша рамка */
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Promotion System Styles: Більше розкоші та інтерактивності --- */
+        .promotion-system {
+            margin: 90px 0; /* Більший відступ */
+            background: var(--glass);
+            backdrop-filter: blur(12px); /* Сильніший blur */
+            padding: 60px; /* Збільшений padding */
+            border-radius: 20px; /* Більш заокруглені кути */
+            box-shadow: var(--shadow-elevated); /* Глибока тінь */
+            border: 2px solid rgba(212, 175, 55, 0.3); /* Товстіша рамка */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promotion-system::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px; /* Товстіша лінія */
+            background: linear-gradient(to right, var(--primary-dark), var(--gold), var(--accent));
+        }
+
+        .accordion {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: white;
+            cursor: pointer;
+            padding: 28px; /* Збільшений padding */
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.2rem; /* Більший шрифт */
+            font-weight: 700; /* Жирніший */
+            transition: all var(--transition-smooth);
+            margin-bottom: 18px; /* Більший відступ */
+            border-radius: 10px; /* Більш заокруглені кути */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Глибша тінь */
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.4); /* Товстіша рамка */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .accordion::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px; /* Товстіша лінія */
+            background: linear-gradient(to bottom, var(--gold), var(--accent));
+        }
+
+        .accordion:hover {
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            transform: translateY(-5px); /* Більше підняття */
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Ще глибша тінь */
+            border-color: var(--gold);
+        }
+
+        .accordion.active {
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom: 2px solid var(--accent); /* Додаємо акцентну лінію при активності */
+        }
+
+        .accordion::after {
+            content: '\f078'; /* Font Awesome Chevron Down */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 18px; /* Більший розмір іконки */
+            transition: all var(--transition-fast);
+            color: var(--gold);
+        }
+
+        .accordion.active::after {
+            transform: rotate(180deg);
+            color: var(--accent); /* Зміна кольору при активності */
+        }
+
+        .panel {
+            padding: 0 30px; /* Збільшений padding */
+            background-color: var(--gray-light);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-in-out; /* Плавніший transition для max-height */
+            border-radius: 0 0 10px 10px; /* Більш заокруглені кути */
+            margin-bottom: 25px; /* Більший відступ */
+            border-left: 6px solid var(--gold); /* Товстіша лінія */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Глибша тінь */
+        }
+
+        .panel ul {
+            padding: 30px; /* Збільшений padding */
+            list-style-type: none;
+        }
+
+        .panel li {
+            padding: 15px 0; /* Збільшений padding */
+            position: relative;
+            padding-left: 40px; /* Більший відступ для іконки */
+            font-size: 1.05rem; /* Трохи більший шрифт */
+            line-height: 1.8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Легка розділяюча лінія */
+        }
+
+        .panel li:last-child {
+            border-bottom: none; /* Прибираємо нижню лінію останнього елемента */
+        }
+
+        .panel li::before {
+            content: '\f054'; /* Font Awesome Chevron Right */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 17px; /* Коригуємо позицію */
+            font-size: 16px; /* Більший розмір */
+            transition: all var(--transition-fast);
+        }
+
+        .panel li:hover::before {
+            transform: translateX(8px); /* Сильніший рух */
+            color: var(--accent);
+        }
+
+        .note {
+            background: rgba(212, 175, 55, 0.15); /* Трохи темніший фон */
+            border-left: 6px solid var(--gold); /* Товстіша лінія */
+            padding: 25px; /* Збільшений padding */
+            margin: 35px 0; /* Більший відступ */
+            border-radius: 0 10px 10px 0; /* Більш заокруглені кути */
+            position: relative;
+            backdrop-filter: blur(8px); /* Сильніший blur */
+            border: 1px solid rgba(212, 175, 55, 0.3); /* Помітніша рамка */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Глибша тінь */
+        }
+
+        .note::before {
+            content: "\f05a"; /* Font Awesome Info Circle */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: -18px; /* Трохи далі зліва */
+            top: -18px; /* Трохи вище */
+            background: var(--gold);
+            width: 36px; /* Більший розмір */
+            height: 36px; /* Більший розмір */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--darker); /* Темніший колір тексту */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Глибша тінь */
+        }
+
+        .note p {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        .note strong {
+            color: var(--gold);
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); /* Легке світіння */
+        }
+
+        /* --- Disciplinary Actions Styles: Більше розкоші та інтерактивності --- */
+        .disciplinary-actions {
+            margin: 90px 0; /* Більший відступ */
+            position: relative;
+        }
+
+        .disciplinary-actions::before {
+            content: "";
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+        }
+
+        .disciplinary-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 50px 0; /* Більший відступ */
+            background-color: var(--glass);
+            backdrop-filter: blur(12px); /* Сильніший blur */
+            box-shadow: var(--shadow-elevated); /* Глибока тінь */
+            border-radius: 18px; /* Більш заокруглені кути */
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.3); /* Товстіша рамка */
+        }
+
+        .disciplinary-table th, 
+        .disciplinary-table td {
+            padding: 22px 35px; /* Збільшений padding */
+            text-align: left;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15); /* Трохи помітніша лінія */
+            position: relative;
+            transition: background-color var(--transition-fast);
+        }
+
+        .disciplinary-table th {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .disciplinary-table th::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--gold), var(--accent));
+        }
+
+        .disciplinary-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .disciplinary-table tr:hover {
+            background-color: rgba(212, 175, 55, 0.15);
+        }
+
+        .disciplinary-table tr:hover td::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--gold), var(--accent));
+        }
+
+        .fine-amount {
+            color: var(--gold);
+            font-weight: 700; /* Жирніший */
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.4); /* Сильніше світіння */
+            font-size: 1.05rem;
+        }
+
+        /* --- Footer Styles: Завершальний штрих --- */
+        footer {
+            background: linear-gradient(to right, var(--darker), var(--dark));
+            padding: 60px 0; /* Збільшений padding */
+            text-align: center;
+            margin-top: 90px; /* Більший відступ */
+            position: relative;
+            border-top: 2px solid rgba(212, 175, 55, 0.3); /* Товстіша рамка */
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7); /* Тінь зверху */
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px; /* Товстіша лінія */
+            background: linear-gradient(to right, var(--primary-dark), var(--gold), var(--accent), var(--primary)); /* Більш розширений градієнт */
+        }
+
+        .social-links {
+            margin: 35px 0; /* Більший відступ */
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Більший простір */
+        }
+
+        .social-links a {
+            color: var(--light);
+            font-size: 32px; /* Більший розмір іконок */
+            transition: all var(--transition-smooth); /* Плавніший перехід */
+            width: 65px; /* Більший розмір фону */
+            height: 65px; /* Більший розмір фону */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.08); /* Трохи помітніший фон */
+            backdrop-filter: blur(8px); /* Сильніший blur */
+            border: 1px solid rgba(212, 175, 55, 0.3); /* Помітніша рамка */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Глибша тінь */
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-8px) scale(1.15) rotate(5deg); /* Більш виражений ефект */
+            background: rgba(212, 175, 55, 0.2); /* Помітніший фон */
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); /* Глибша тінь */
+        }
+
+        .copyright {
+            opacity: 0.85; /* Більш помітний */
+            font-size: 16px; /* Збільшений шрифт */
+            letter-spacing: 0.8px; /* Більший інтервал */
+        }
+
+        /* --- Scrollbar Styles: Підкреслення дизайну --- */
+        ::-webkit-scrollbar {
+            width: 14px; /* Товстіший scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+            border-radius: 10px; /* Заокруглений трек */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--gold), var(--accent), var(--primary-light)); /* Розширений градієнт */
+            border-radius: 8px; /* Заокруглений thumb */
+            border: 3px solid var(--darker); /* Товстіша рамка */
+            transition: background var(--transition-fast);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #FFEB80, #FF8C00, #CD5C5C); /* Зміна градієнта при ховері */
+        }
+
+        /* --- Animation Effects: Покращені та нові анімації --- */
+        /* Загальна анімація появи елементів */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Specific animations for better user experience */
+        .gallery-item, 
+        .hierarchy-table tr, 
+        .accordion, 
+        .disciplinary-table tr {
+            /* Прибираємо початкові inline стилі з JS, CSS буде контролювати */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+        }
+
+        /* Responsive Styles: Адаптуємо для всіх пристроїв */
+        @media (max-width: 1200px) {
+            .container {
+                width: 95%;
+            }
+            h1 { font-size: 3.8rem; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+            .promotion-system { padding: 50px; }
+        }
+
+        @media (max-width: 992px) {
+            h1 { font-size: 3.2rem; }
+            .subtitle { font-size: 1.25rem; }
+            .gallery-title, .section-title { font-size: 2.8rem; }
+            .gallery-grid { gap: 25px; }
+            .promotion-system { padding: 40px; }
+            .accordion { font-size: 1.1rem; padding: 22px; }
+            .panel li { font-size: 1rem; }
+            .hierarchy-table th, .hierarchy-table td { padding: 18px 25px; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 40px 0; margin-bottom: 50px; }
+            h1 { font-size: 2.8rem; }
+            .logo img { height: 100px; }
+            .subtitle { font-size: 1.15rem; }
+            .gallery-title, .section-title { font-size: 2.4rem; }
+            .gallery-grid { grid-template-columns: 1fr; gap: 20px; }
+            .hierarchy-table th, .hierarchy-table td { padding: 15px 20px; font-size: 0.9rem; }
+            .promotion-system { padding: 30px; }
+            .accordion { padding: 18px; font-size: 1rem; }
+            .panel ul { padding: 20px; }
+            .panel li { padding: 10px 0 10px 35px; font-size: 0.95rem; }
+            .note { padding: 20px; margin: 25px 0; }
+            .social-links a { width: 55px; height: 55px; font-size: 24px; }
+        }
+
+        @media (max-width: 576px) {
+            body { padding: 15px; }
+            h1 { font-size: 2.2rem; }
+            h1::after { width: 120px; bottom: -10px; }
+            .subtitle { font-size: 1rem; padding: 0 10px; }
+            .gallery-title, .section-title { font-size: 2rem; margin-bottom: 25px; }
+            .gallery-title::after, .section-title::after { width: 100px; margin: 15px auto; }
+            .search-container { flex-direction: column; gap: 15px; margin-bottom: 30px; }
+            #searchInput { padding: 14px 20px; font-size: 15px; max-width: 100%; }
+            .toggle-btn { padding: 14px 25px; font-size: 15px; width: 100%; }
+            .hierarchy-table th, .hierarchy-table td { padding: 12px 15px; font-size: 0.85rem; }
+            .promotion-system { padding: 20px; margin: 50px 0; }
+            .accordion { padding: 15px; font-size: 0.95rem; }
+            .panel { border-radius: 0 0 8px 8px; }
+            .panel ul { padding: 15px; }
+            .panel li { padding: 8px 0 8px 30px; font-size: 0.9rem; }
+            .panel li::before { top: 10px; font-size: 12px; }
+            .note { padding: 15px; margin: 20px 0; font-size: 0.9rem; }
+            .note::before { left: -12px; top: -12px; width: 25px; height: 25px; font-size: 14px; }
+            footer { padding: 40px 0; margin-top: 50px; }
+            .social-links { margin: 20px 0; gap: 20px; }
+            .social-links a { width: 50px; height: 50px; font-size: 22px; }
+            .copyright { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
     <header>
         <div class="container header-content">
             <div class="logo">
