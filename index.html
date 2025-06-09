@@ -324,23 +324,19 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
         }
 
+        /* Прибираємо велике фото для ГС/ЗГС */
         .staff-member.gs-zgs .main-photo {
-            width: 100%; /* Фото займає всю доступну ширину */
-            height: auto;
-            border-radius: 8px; /* Залишаємо прямокутним */
-            object-fit: cover;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: none;
         }
 
         .staff-member.gs-zgs .circle-avatar-container {
-            width: 100px; /* Розмір круглого аватара */
-            height: 100px;
+            width: 120px; /* Розмір круглого аватара, як у звичайних слідкуючих */
+            height: 120px;
             border-radius: 50%;
             overflow: hidden;
             border: 3px solid var(--accent-color-light);
             box-shadow: 0 0 12px rgba(253, 216, 53, 0.6);
-            margin-top: 15px; /* Відступ від основного фото */
+            margin-bottom: 15px; /* Відступ від тексту */
         }
 
         .staff-member.gs-zgs .circle-avatar-container img {
@@ -351,7 +347,7 @@
 
         .staff-member.gs-zgs h4 {
             color: var(--accent-color-light);
-            margin-top: 10px; /* Відступ від круглого аватара */
+            margin-top: 0;
             margin-bottom: 5px;
             font-size: 1.3em;
             font-family: 'Oswald', sans-serif;
@@ -383,7 +379,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 140px;
+            width: 140px; /* Задаємо фіксовану ширину для одноманітності */
         }
 
         .admin-avatar-item:hover {
@@ -392,7 +388,7 @@
         }
 
         .admin-avatar-item img {
-            width: 120px;
+            width: 120px; /* Розмір аватара відповідає ГС/ЗГС */
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
@@ -469,10 +465,14 @@
                 grid-template-columns: 1fr;
             }
             .admin-avatar-item {
-                width: 120px;
+                width: 120px; /* Адаптуємо розмір для мобільних */
             }
             .admin-avatar-item img {
                 width: 100px;
+                height: 100px;
+            }
+            .staff-member.gs-zgs .circle-avatar-container {
+                width: 100px; /* Адаптуємо розмір для мобільних */
                 height: 100px;
             }
         }
@@ -507,7 +507,6 @@
             <h3>ГС та ЗГС Неофіційних Організацій</h3>
             <div class="staff-info">
                 <div class="staff-member gs-zgs">
-                    <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/57f90c9a-a987-47e8-bde6-1803b5becd09.webp" alt="Данієль Хомс" class="main-photo">
                     <div class="circle-avatar-container">
                         <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/57f90c9a-a987-47e8-bde6-1803b5becd09.webp" alt="Аватар Данієля Хомса">
                     </div>
@@ -515,7 +514,6 @@
                     <p>ГС Неоф</p>
                 </div>
                 <div class="staff-member gs-zgs">
-                    <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/6734.webp" alt="Олександр Пуля" class="main-photo">
                     <div class="circle-avatar-container">
                         <img src="https://ukraine-gta.com.ua/images/game/skins/300x280/6734.webp" alt="Аватар Олександра Пулі">
                     </div>
